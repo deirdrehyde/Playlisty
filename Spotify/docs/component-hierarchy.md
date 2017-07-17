@@ -8,7 +8,7 @@
     * #### CurrentSongDetails
     * #### AudioPlayerContainer
       * ##### PlayPause
-      * ##### Scrollbar
+      * ##### Shuffle
       * ##### Volume
       * ##### PrevSong
       * ##### NextSong
