@@ -50,7 +50,7 @@ class SessionForm extends React.Component {
   }
 
   navLink() {
-     if (this.props.formType.name === 'login') {
+     if (this.props.formType === 'login') {
        return <Link onClick={this.clearErrors()} to="/signup">Don't have an account? Sign up here!</Link>;
      } else {
        return <Link onClick={this.clearErrors()} to="/login">Already have an account? Log in here.</Link>;
@@ -101,7 +101,7 @@ class SessionForm extends React.Component {
                 />
             </label>
           </div>
-          <input type="submit" value={this.props.formType.name === 'login' ? 'Login' : 'Sign Up'} />
+          <input type="submit" value={this.props.formType === 'login' ? 'Login' : 'Sign Up'} />
           <button className="guest" onClick={this.loginGuest}>Guest Login</button>
           {this.navLink()}
         </form>
