@@ -2,14 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  background-image: url(https://images.pexels.com/photos/501140/pexels-photo-501140.jpeg?w=940&h=650&auto=compress&cs=tinysrgb);
-  background-size: 100%;
+  background-image: url(https://static.pexels.com/photos/487434/pexels-photo-487434.jpeg);
+  background-size: cover;
   background-repeat: no-repeat;
   font-family: "proxima_nova","Helvetica Neue","Helvetica","Arial",sans-serif;
   color: white;
-  display: block;
+  // height: 100%;
+  // position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
 
 #wrapper {
-  margin: 0 150px 0 150px;
+  margin: 10% 20% 10% 20%;
+
 }
+
+input[type=submit] {
+  background-color: transparent;
+  border: solid 1.5px #FFF;
+  border-radius: 256px;
+  color: #FFF;
+  display: block;
+  font-size: 13px;
+  letter-spacing: .03em;
+  line-height: 1.25em;
+  margin: 20px auto;
+  max-width: 320px;
+  height: 41px;
+  overflow: hidden;
+  padding: 2px 15px 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+// .login-form {
+//
+// }
