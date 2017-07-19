@@ -7,7 +7,10 @@ import { AuthRoute } from '../util/route_util';
 const App = () => (
   <div>
     <header>
-      <h1>Spotify</h1>
+      <div className="header">
+        <img className="logo" src="http://res.cloudinary.com/douzdapki/image/upload/v1500486429/Refresh_xdfvbr.png"/>
+        <h1>Playlisty</h1>
+      </div>
       <GreetingContainer />
     </header>
     <Switch>

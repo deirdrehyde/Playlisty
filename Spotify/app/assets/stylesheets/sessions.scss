@@ -2,19 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  background-image: url(https://static.pexels.com/photos/487434/pexels-photo-487434.jpeg);
+  background-image: url(https://res.cloudinary.com/douzdapki/image/upload/v1500486166/pexels-photo-487434.png_rgvpot.png);
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: black;
   font-family: "proxima_nova","Helvetica Neue","Helvetica","Arial",sans-serif;
   color: white;
   height: 100%;
 
 }
+.header {
+  display: flex;
+  align-items: center;
 
+}
 .flex-grid {
   display: flex;
+  margin-top: 5%;
+  padding-bottom: 20%;
 }
-
+.logo {
+  height: 80px;
+  width: 80px;
+}
 form {
   flex: 1;
   align-self: center;
@@ -23,8 +33,9 @@ form {
 
 .login {
   padding-right: 50px;
-  padding-left: 5%;
+  padding-left: 10%;
   border-right: thin solid white;
+  max-width: 500px;
 }
 
 
@@ -35,10 +46,11 @@ form {
 
 .info-text {
   padding-left: 50px;
+  max-width: 700px;
 }
 
 .login-form {
-  width: 450px;
+  max-width: 450px;
 }
 
 input[type="text"] {
@@ -72,7 +84,7 @@ input[type=submit] {
   border: solid 1.5px #FFF;
   border-radius: 256px;
   color: #FFF;
-  display: block;
+  // display: block;
   font-size: 13px;
   letter-spacing: .03em;
   line-height: 1.25em;
@@ -91,7 +103,7 @@ input[type=submit] {
   border: solid 1.5px #FFF;
   border-radius: 256px;
   color: #FFF;
-  display: block;
+  // display: block;
   font-size: 13px;
   letter-spacing: .03em;
   line-height: 1.25em;
