@@ -40,8 +40,7 @@ class SessionForm extends React.Component {
   loginGuest(e) {
     e.preventDefault();
     const user = { username: "guest", password: "password" };
-    this.props.formType = 'login';
-    this.props.processForm(user);
+    this.props.loginGuest(user);
 
   }
 
@@ -72,9 +71,9 @@ class SessionForm extends React.Component {
     return(
       <div className="flex-grid">
         <form className="login" onSubmit={this.handleSubmit}>
-          <h2 className="welcome">
+          <div className="welcome">
             {this.props.formType === 'Login' ? "Please login to access your playlists" : "Create your free Playlisty account"}
-          </h2>
+          </div>
           { this.renderErrors() }
           <br/>
           <br/>
