@@ -9,6 +9,8 @@ class SessionForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.loginGuest = this.loginGuest.bind(this);
+    console.log(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -35,6 +37,18 @@ class SessionForm extends React.Component {
     );
   }
 
+  loginGuest(e) {
+    e.preventDefault();
+    const user = { username: "guest", password: "password" };
+    // return e => {
+    //   this.setState({
+    //     username: "guest",
+    //     password: "password"
+    //   }),
+    this.props.processForm(user)
+
+  }
+
   navLink() {
      if (this.props.formType.name === 'login') {
        return <Link onClick={this.clearErrors()} to="/signup">Don't have an account? Sign up here!</Link>;
@@ -46,7 +60,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <ul className="errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -60,8 +74,8 @@ class SessionForm extends React.Component {
   render() {
 
     return(
-      <div id="wrapper">
-        <form onSubmit={this.handleSubmit}>
+      <div className="flex-grid">
+        <form className="login" onSubmit={this.handleSubmit}>
           <h1>Welcome to Spotify!</h1>
           <br/>
           Please {this.props.formType.name}
@@ -88,7 +102,17 @@ class SessionForm extends React.Component {
             </label>
           </div>
           <input type="submit" value={this.props.formType.name === 'login' ? 'Login' : 'Sign Up'} />
-         {this.navLink()}
+          <button className="guest" onClick={this.loginGuest}>Guest Login</button>
+          {this.navLink()}
+        </form>
+
+        <form className="info-text">
+          <h1 className="info">Get the right music, right now</h1>
+          <h2>Listen to millions of songs for free.</h2>
+          <ul>
+            <li>Search and discover music you'll love</li>
+            <li>Create playlists of your favorite music</li>
+          </ul>
         </form>
 
       </div>

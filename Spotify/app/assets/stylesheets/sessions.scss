@@ -8,18 +8,38 @@ body {
   font-family: "proxima_nova","Helvetica Neue","Helvetica","Arial",sans-serif;
   color: white;
   height: 100%;
-  // position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-
-#wrapper {
-  margin: 5% 20% 10% 20%;
 
 }
 
+.flex-grid {
+  display: flex;
+}
+
+form {
+  flex: 1;
+  align-self: center;
+  align-items: center;
+}
+
+.login {
+  padding-right: 50px;
+  padding-left: 5%;
+  border-right: thin solid white;
+}
+
+
+.info {
+  color: #07d159;
+  position: relative;
+}
+
+.info-text {
+  padding-left: 50px;
+}
+
+.login-form {
+  width: 450px;
+}
 
 input[type="text"] {
   display: flex;
@@ -66,14 +86,41 @@ input[type=submit] {
   width: 100%;
 }
 
+.guest {
+  background-color: transparent;
+  border: solid 1.5px #FFF;
+  border-radius: 256px;
+  color: #FFF;
+  display: block;
+  font-size: 13px;
+  letter-spacing: .03em;
+  line-height: 1.25em;
+  margin: 20px auto;
+  max-width: 320px;
+  height: 41px;
+  overflow: hidden;
+  padding: 2px 15px 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
 a {
   color: white;
 }
 
-ul {
+.errors {
   list-style: none;
-  background-color: firebrick;
+  background-color: #ce1a2b;
   color: white;
   font-weight: bold;
   font-size: 18px;
+  border-radius: 20px;
+  max-width: 460px;
+}
+h1 {
+  font-size: 60px;
+}
+h2 {
+  font-size: 28px;
 }
