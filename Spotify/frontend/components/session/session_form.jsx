@@ -40,12 +40,13 @@ class SessionForm extends React.Component {
   loginGuest(e) {
     e.preventDefault();
     const user = { username: "guest", password: "password" };
+    this.props.formType = 'login';
     this.props.processForm(user);
 
   }
 
   navLink() {
-     if (this.props.formType === 'login') {
+     if (this.props.formType === 'Login') {
        return <Link onClick={this.clearErrors()} to="/signup">Don't have an account? Sign up here!</Link>;
      } else {
        return <Link onClick={this.clearErrors()} to="/login">Already have an account? Log in here.</Link>;
@@ -71,8 +72,9 @@ class SessionForm extends React.Component {
     return(
       <div className="flex-grid">
         <form className="login" onSubmit={this.handleSubmit}>
-        
-          Please {this.props.formType}
+          <h2 className="welcome">
+            {this.props.formType === 'Login' ? "Please login to access your playlists" : "Create your free Playlisty account"}
+          </h2>
           { this.renderErrors() }
           <br/>
           <br/>
@@ -95,9 +97,9 @@ class SessionForm extends React.Component {
                 />
             </label>
           </div>
-          <input type="submit" value={this.props.formType === 'login' ? 'Login' : 'Sign Up'} />
+          <input type="submit" value={this.props.formType === 'Login' ? 'Login' : 'Sign Up'} />
           <button className="guest" onClick={this.loginGuest}>Guest Login</button>
-          <div>
+          <div className="nav-link">
             {this.navLink()}
           </div>
         </form>
