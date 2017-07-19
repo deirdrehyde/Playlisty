@@ -72,13 +72,13 @@ class SessionForm extends React.Component {
 
 
   render() {
-
+    console.log(this.props);
     return(
       <div className="flex-grid">
         <form className="login" onSubmit={this.handleSubmit}>
           <h1>Welcome to Spotify!</h1>
           <br/>
-          Please {this.props.formType.name}
+          Please {this.props.formType}
           { this.renderErrors() }
           <br/>
           <br/>
@@ -109,7 +109,7 @@ class SessionForm extends React.Component {
         <form className="info-text">
           <h1 className="info">Get the right music, right now</h1>
           <h2>Listen to millions of songs for free.</h2>
-          <ul>
+          <ul className="info-list">
             <li>Search and discover music you'll love</li>
             <li>Create playlists of your favorite music</li>
           </ul>
