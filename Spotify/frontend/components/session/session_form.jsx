@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -9,7 +9,12 @@ class SessionForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    console.log(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.loggedIn) {
+      this.props.history.push('/');
+    }
   }
 
   handleSubmit(e) {
@@ -18,22 +23,72 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
+
+  clearErrors() {
+    return e => (
+      this.props.clearErrors()
+    );
+  }
+
   navLink() {
-     if (this.props.formType === 'login') {
-       return <Link to="/signup">sign up instead</Link>;
+     if (this.props.formType.name === 'login') {
+       return <Link onClick={this.clearErrors()} to="/signup">Don't have an account? Sign up here!</Link>;
      } else {
-       return <Link to="/login">log in instead</Link>;
+       return <Link onClick={this.clearErrors()} to="/login">Already have an account? Log in here.</Link>;
      }
    }
+
+
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
 
   render() {
 
     return(
-      <div>
+      <div id="wrapper">
         <form onSubmit={this.handleSubmit}>
           <h1>Welcome to Spotify!</h1>
           <br/>
-          Please {this.props.formType} or {this.navLink()}
+          Please {this.props.formType.name}
+          { this.renderErrors() }
+          <br/>
+          <br/>
+          <div className="login-form">
+            <label>Username:
+              <br/>
+              <input type="text"
+                value={this.state.username}
+                onChange={this.update('username')}
+                className="login-input"
+                />
+            </label>
+            <br/>
+            <label>Password:
+              <br/>
+              <input type="password"
+                value={this.state.password}
+                onChange={this.update('password')}
+                className="login-input"
+                />
+            </label>
+          </div>
+          <input type="submit" value={this.props.formType.name === 'login' ? 'Login' : 'Sign Up'} />
+         {this.navLink()}
         </form>
 
       </div>
@@ -41,4 +96,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);
