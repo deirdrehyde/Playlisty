@@ -6,7 +6,8 @@ class PlaylistForm extends React.Component {
     super(props);
     this.state = {
       name: "",
-      creator_id: null
+      creator_id: null,
+      showComponent: true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -23,7 +24,9 @@ class PlaylistForm extends React.Component {
     this.props.createPlaylist({playlist});
   }
 
+
   render() {
+    console.log(this.props);
     return (
       <form className="playlist-form">
         <h1>Create new playlist</h1>
@@ -40,7 +43,8 @@ class PlaylistForm extends React.Component {
           </label>
         </div>
         <button className="create-playlist" onClick={this.handleSubmit}>Create</button>
-        <button className="cancel">Cancel</button>
+        <button className="cancel" onClick={this.props.closePlaylistForm}>Cancel</button>
+
       </form>
     )
   }

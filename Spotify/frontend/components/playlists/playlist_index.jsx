@@ -11,38 +11,47 @@ class PlaylistIndex extends React.Component {
       showComponent: false
     };
     this.renderPlaylistForm = this.renderPlaylistForm.bind(this);
+    this.closePlaylistForm = this.closePlaylistForm.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchPlaylists();
   }
 
-  renderPlaylistForm() {
+  renderPlaylistForm(e) {
+    e.preventDefault();
     this.setState({
       showComponent: true,
     });
   }
 
+  closePlaylistForm(e) {
+    e.preventDefault();
+    this.setState({
+      showComponent: false,
+    });
+  }
+
 
   render () {
-    console.log("rending playlist");
     const { playlists } = this.props;
-    console.log(playlists);
-
     return(
       <div>
         <nav>
           <form>
           <button onClick={this.renderPlaylistForm}>New Playlist</button>
           {this.state.showComponent ?
-             <PlaylistForm /> :
+             (<PlaylistForm
+               closePlaylistForm={this.closePlaylistForm}
+               createPlaylist={this.props.createPlaylist}
+               />) :
              null
           }
 
             <ul className="playlist-list">
               {playlists.map((playlist) => (
                 <li className="playlist" key={playlist.id}>
-                  <h1>{playlist.name}</h1>
+                  <h1 className="playlist-name">{playlist.name}</h1>
                 </li>)
               )
             }
