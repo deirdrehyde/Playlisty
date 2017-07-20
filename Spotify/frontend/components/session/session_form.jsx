@@ -10,7 +10,6 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginGuest = this.loginGuest.bind(this);
-    console.log(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -67,7 +66,6 @@ class SessionForm extends React.Component {
 
 
   render() {
-    console.log(this.props);
     return(
       <div className="flex-grid">
         <form className="login" onSubmit={this.handleSubmit}>
@@ -81,6 +79,7 @@ class SessionForm extends React.Component {
             <label>Username:
               <br/>
               <input type="text"
+                placeholder="Playlisty usename"
                 value={this.state.username}
                 onChange={this.update('username')}
                 className="login-input"
@@ -90,6 +89,7 @@ class SessionForm extends React.Component {
             <label>Password:
               <br/>
               <input type="password"
+                placeholder="Password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="login-input"
