@@ -50,11 +50,17 @@ class PlaylistIndex extends React.Component {
 
             <ul className="playlist-list">
               {playlists.map((playlist) => (
+                <div>
+
                 <li className="playlist" key={playlist.id}>
                   <Link to={`/playlists/${playlist.id}`} className="playlist-name">{playlist.name}</Link>
-                </li>)
+                </li>
+                <li>{playlist.name}</li>
+                <li>By {playlist.creator_id}</li>
+              </div>
               )
-            }
+            )
+          }
           </ul>
         </form>
         </nav>
