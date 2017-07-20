@@ -25,19 +25,25 @@ class PlaylistForm extends React.Component {
 
   render() {
     return (
-      <form className="playlist-form" onSubmit={handleSubmit}>
-        <label>Playlist Name:
-          <input
-            className="input"
-            ref="name"
-            value={ this.state.name }
-            placeholder="Start typing..."
-            onChange={ this.update('name') }
-            />
-        </label>
-        <button className="create-playlist">Create Playlist</button>
+      <form className="playlist-form">
+        <h2>Create new playlist</h2>
+        <div className="playlist-input">
+          <label>Playlist Name:
+            <input
+              className="input"
+              ref="name"
+              value={ this.state.name }
+              placeholder="Start typing..."
+              onChange={ this.update('name') }
+              />
+          </label>
+        </div>
+        <button className="create-playlist" onClick={this.handleSubmit}>Create</button>
+        <button className="cancel">Cancel</button>
       </form>
     )
   }
 
 }
+
+export default withRouter(PlaylistForm);

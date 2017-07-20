@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createPlaylist } from '../actions/playlist_actions';
+import { createPlaylist } from '../../actions/playlist_actions';
 import PlaylistForm from './playlist_form';
 
 const mapDispatchToProps = (dispatch) => ({
