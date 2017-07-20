@@ -23,17 +23,19 @@ class PlaylistIndex extends React.Component {
 
     return(
       <div>
-        <form>
-          <button >New Playlist</button>
-          <ul className="playlist-list">
-            {playlists.map((playlist) => (
-              <li className="playlist" key={playlist.id}>
-                <h1>{playlist.name}</h1>
-              </li>)
-            )
-          }
-        </ul>
+        <nav>
+          <form>
+            <button >New Playlist</button>
+            <ul className="playlist-list">
+              {playlists.map((playlist) => (
+                <li className="playlist" key={playlist.id}>
+                  <h1>{playlist.name}</h1>
+                </li>)
+              )
+            }
+          </ul>
         </form>
+        </nav>
       </div>
     )
 

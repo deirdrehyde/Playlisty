@@ -55,11 +55,6 @@ form {
   max-width: 500px;
 }
 
-//
-// .info {
-//   color: #07d159;
-//   position: relative;
-// }
 
 .info-text {
   padding-left: 50px;
@@ -167,6 +162,7 @@ a {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 0;
 }
 h1 {
   font-size: 60px;
