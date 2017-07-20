@@ -5,14 +5,15 @@ import { selectPlaylist } from '../../reducers/selectors';
 import PlaylistShow from './playlist_show';
 
 const mapStateToProps = (state, {match}) => ({
-  const playlistId = parseInt(match.params.playlistId);
-  const playlist = selectPlaylist(state, playlistId);
-  return {
-    playlistId,
-    playlist
-  };
+  playlistId: parseInt(match.params.playlistId),
+  playlist: selectPlaylist(state, playlistId)
 })
 
 const mapDispatchToProps = (dispatch) => ({
   fetchPlaylist: id => dispatch(fetchPlaylist(id))
 })
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PlaylistShow);

@@ -51,7 +51,7 @@ class PlaylistIndex extends React.Component {
             <ul className="playlist-list">
               {playlists.map((playlist) => (
                 <li className="playlist" key={playlist.id}>
-                  <h1 className="playlist-name">{playlist.name}</h1>
+                  <Link to={`/playlists/${playlist.id}`} className="playlist-name">{playlist.name}</Link>
                 </li>)
               )
             }
