@@ -5,8 +5,8 @@ import { selectPlaylist } from '../../reducers/selectors';
 import PlaylistShow from './playlist_show';
 
 const mapStateToProps = (state, {match}) => ({
-  playlistId: parseInt(match.params.playlistId),
-  playlist: selectPlaylist(state, playlistId)
+  playlistId: parseInt(match.params.id),
+  playlist: selectPlaylist(state, match.params.id)
 })
 
 const mapDispatchToProps = (dispatch) => ({

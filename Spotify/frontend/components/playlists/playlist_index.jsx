@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PlaylistForm from './playlist_form';
+import GreetingContainer from '../greeting/greeting_container';
+
 
 class PlaylistIndex extends React.Component {
   constructor(props) {
@@ -36,37 +38,46 @@ class PlaylistIndex extends React.Component {
   render () {
     const { playlists } = this.props;
     return(
-      <div>
-        <nav>
-          <form>
-          <button onClick={this.renderPlaylistForm}>New Playlist</button>
-          {this.state.showComponent ?
-             (<PlaylistForm
-               closePlaylistForm={this.closePlaylistForm}
-               createPlaylist={this.props.createPlaylist}
-               />) :
-             null
-          }
+      <div className="playlist-container">
+        <div className="now-playing-bar">
 
-            <ul className="playlist-list">
-              {playlists.map((playlist) => (
-                <div>
+        </div>
+        <div className="top-container">
+          <nav className="top-nav">
+            <button onClick={this.renderPlaylistForm}>New Playlist</button>
+            {this.state.showComponent ?
+              (<PlaylistForm
+                closePlaylistForm={this.closePlaylistForm}
+                createPlaylist={this.props.createPlaylist}
+                />) :
+                null
+              }
 
-                <li className="playlist" key={playlist.id}>
-                  <Link to={`/playlists/${playlist.id}`}
-                    className="playlist-name"
-                    onClick={this.props.fetchPlaylist}
-                    ></Link>
-                </li>
-                <li>{playlist.name}</li>
-                <li>By {playlist.creator_id}</li>
-              </div>
+            </nav>
+            <nav className="side-nav">
+              <GreetingContainer/>
+            </nav>
+            <form className="content-form">
+              <ul className="playlist-list">
+                {playlists.map((playlist) => (
+                  <div id="each-playlist">
+
+                    <li className="playlist" key={playlist.id}>
+                      <Link to={`/playlists/${playlist.id}`}
+                        className="playlist-name"
+                        onClick={this.props.fetchPlaylist}
+                        ></Link>
+                    </li>
+                    <li>{playlist.name}</li>
+                    <li>By {playlist.creator_id}</li>
+                  </div>
+                )
               )
-            )
-          }
+            }
           </ul>
         </form>
-        </nav>
+      </div>
+
       </div>
     )
 

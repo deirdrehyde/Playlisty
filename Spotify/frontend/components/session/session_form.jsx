@@ -67,51 +67,58 @@ class SessionForm extends React.Component {
 
   render() {
     return(
-      <div className="flex-grid">
-        <form className="login" onSubmit={this.handleSubmit}>
-          <div className="welcome">
-            {this.props.formType === 'Login' ? "Please login to access your playlists" : "Create your free Playlisty account"}
-          </div>
-          { this.renderErrors() }
-          <br/>
-          <br/>
-          <div className="login-form">
-            <label>Username:
-              <br/>
-              <input type="text"
-                placeholder="Playlisty usename"
-                value={this.state.username}
-                onChange={this.update('username')}
-                className="login-input"
-                />
-            </label>
+      <div>
+
+        <div className="header">
+          <img className="logo" src="http://res.cloudinary.com/douzdapki/image/upload/v1500486429/Refresh_xdfvbr.png"/>
+          <h1>Playlisty</h1>
+        </div>
+        <div className="flex-grid">
+          <form className="login" onSubmit={this.handleSubmit}>
+            <div className="welcome">
+              {this.props.formType === 'Login' ? "Please login to access your playlists" : "Create your free Playlisty account"}
+            </div>
+            { this.renderErrors() }
             <br/>
-            <label>Password:
+            <br/>
+            <div className="login-form">
+              <label>Username:
+                <br/>
+                <input type="text"
+                  placeholder="Playlisty usename"
+                  value={this.state.username}
+                  onChange={this.update('username')}
+                  className="login-input"
+                  />
+              </label>
               <br/>
-              <input type="password"
-                placeholder="Password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-                />
-            </label>
-          </div>
-          <input type="submit" value={this.props.formType === 'Login' ? 'Login' : 'Sign Up'} />
-          <button className="guest" onClick={this.loginGuest}>Guest Login</button>
-          <div className="nav-link">
-            {this.navLink()}
-          </div>
-        </form>
+              <label>Password:
+                <br/>
+                <input type="password"
+                  placeholder="Password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  className="login-input"
+                  />
+              </label>
+            </div>
+            <input type="submit" value={this.props.formType === 'Login' ? 'Login' : 'Sign Up'} />
+            <button className="guest" onClick={this.loginGuest}>Guest Login</button>
+            <div className="nav-link">
+              {this.navLink()}
+            </div>
+          </form>
 
-        <form className="info-text">
-          <h1 className="info">Get the right music, right now</h1>
-          <h2>Listen to millions of songs for free.</h2>
-          <ul className="info-list">
-            <li>Search and discover music you'll love</li>
-            <li>Create playlists of your favorite music</li>
-          </ul>
-        </form>
+          <form className="info-text">
+            <h1 className="info">Get the right music, right now</h1>
+            <h2>Listen to millions of songs for free.</h2>
+            <ul className="info-list">
+              <li>Search and discover music you'll love</li>
+              <li>Create playlists of your favorite music</li>
+            </ul>
+          </form>
 
+        </div>
       </div>
     )
   }

@@ -5,11 +5,14 @@ class PlaylistShow extends React.Component {
   constructor(props) {
     super(props);
     console.log(this.props);
+    const playlists = {
+      [this.props.match.params.id]: playlist
+    };
   }
 
   componentDidMount() {
     console.log(this.props);
-    this.props.fetchPlaylist(this.props.match.params.playlistId);
+    this.props.fetchPlaylist(this.props.match.params.id);
   }
 
   render() {
@@ -21,6 +24,7 @@ class PlaylistShow extends React.Component {
           <li>
             <h2>{playlist.name}</h2>
           </li>
+          <li>By {playlist.creator_id}</li>
         </ul>
       </form>
     )
