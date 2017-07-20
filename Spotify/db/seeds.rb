@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 guest = User.create(username: "Guest", password: "password")
+playlist1 = Playlist.create(name: "Top Hits", creator_id: 1)
+playlist2 = Playlist.create(name: "Workout", creator_id: 1)

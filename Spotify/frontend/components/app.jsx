@@ -16,8 +16,8 @@ const App = () => (
       <GreetingContainer />
     </header>
     <Switch>
-      <ProtectedRoute path='/playlists' component={PlaylistIndexContainer} />
-      <ProtectedRoute path='/playlists/:id' component={PlaylistIndexContainer} />
+      <ProtectedRoute exact path='/playlists' component={PlaylistIndexContainer} />
+      <ProtectedRoute exact path='/playlists/:id' component={PlaylistShowContainer} />
       <AuthRoute path='/' component={SessionFormContainer} />
       <AuthRoute path='/login' component={SessionFormContainer} />
       <AuthRoute path='/signup' component={SessionFormContainer} />

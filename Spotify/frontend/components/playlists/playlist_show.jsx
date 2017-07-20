@@ -1,8 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class PlaylistShow extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(this.props);
+  }
+
   componentDidMount() {
+    console.log(this.props);
     this.props.fetchPlaylist(this.props.match.params.playlistId);
   }
 
@@ -21,4 +27,4 @@ class PlaylistShow extends React.Component {
   }
 }
 
-export default PlaylistShow;
+export default withRouter(PlaylistShow);

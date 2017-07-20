@@ -53,7 +53,10 @@ class PlaylistIndex extends React.Component {
                 <div>
 
                 <li className="playlist" key={playlist.id}>
-                  <Link to={`/playlists/${playlist.id}`} className="playlist-name">{playlist.name}</Link>
+                  <Link to={`/playlists/${playlist.id}`}
+                    className="playlist-name"
+                    onClick={this.props.fetchPlaylist}
+                    ></Link>
                 </li>
                 <li>{playlist.name}</li>
                 <li>By {playlist.creator_id}</li>
