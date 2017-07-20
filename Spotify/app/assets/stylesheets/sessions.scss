@@ -55,7 +55,7 @@ form {
   max-width: 500px;
 }
 
-// 
+//
 // .info {
 //   color: #07d159;
 //   position: relative;
@@ -101,7 +101,6 @@ input[type=submit] {
   border: solid 1.5px #FFF;
   border-radius: 256px;
   color: #FFF;
-  // display: block;
   font-size: 13px;
   letter-spacing: .03em;
   line-height: 1.25em;
@@ -115,6 +114,7 @@ input[type=submit] {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  cursor: pointer;
 }
 
 .guest {
