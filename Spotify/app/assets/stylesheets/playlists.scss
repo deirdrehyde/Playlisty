@@ -35,3 +35,8 @@ button {
   text-align: center;
   letter-spacing: 2px;
 }
+
+button:hover {
+  transform: scale(1.035);
+  background-color: #1ed760;
+}

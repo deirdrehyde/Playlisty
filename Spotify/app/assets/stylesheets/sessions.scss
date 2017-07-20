@@ -117,6 +117,19 @@ input[type=submit] {
   cursor: pointer;
 }
 
+input:hover {
+  transform: scale(1.035);
+}
+
+input[type=submit]:hover {
+  background-color: #1ed760;
+}
+
+.nav-link:hover {
+  transform: scale(1.035);
+  color: #07d159;
+}
+
 .guest {
   background-color: transparent;
   border: solid 1.5px #FFF;
