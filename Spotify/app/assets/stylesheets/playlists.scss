@@ -58,4 +58,30 @@ button:hover {
   width: 100%;
   padding: 0 20%;
   background-color: #242424;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  margin: 2%;
+}
+
+.input{
+  display: flex;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 62px;
+  font-weight: 700;
+  margin-top: 20px;
+  color: #1ed760;
+}
+
+label {
+  height: 200px;
+}
+
+h4 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: .5em;
+  font-weight: 300;
 }

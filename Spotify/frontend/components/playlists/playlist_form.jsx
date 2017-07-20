@@ -26,9 +26,10 @@ class PlaylistForm extends React.Component {
   render() {
     return (
       <form className="playlist-form">
-        <h2>Create new playlist</h2>
+        <h1>Create new playlist</h1>
         <div className="playlist-input">
-          <label>Playlist Name:
+          <label><h4>Playlist Name</h4>
+            <br/>
             <input
               className="input"
               ref="name"
