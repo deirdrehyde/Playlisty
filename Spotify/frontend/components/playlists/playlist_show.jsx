@@ -4,15 +4,14 @@ import { Link, withRouter } from 'react-router-dom';
 class PlaylistShow extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
-    const playlists = {
-      [this.props.match.params.id]: playlist
+    this.state = {
+      name: "",
+      creator_id: null
     };
   }
 
   componentDidMount() {
-    console.log(this.props);
-    this.props.fetchPlaylist(this.props.match.params.id);
+    this.props.fetchPlaylist(this.props.playlistId);
   }
 
   render() {

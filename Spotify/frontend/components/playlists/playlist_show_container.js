@@ -6,7 +6,8 @@ import PlaylistShow from './playlist_show';
 
 const mapStateToProps = (state, {match}) => ({
   playlistId: parseInt(match.params.id),
-  playlist: selectPlaylist(state, match.params.id)
+  playlist: selectPlaylist(state, match.params.id),
+  errors: state.errors
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -4,8 +4,7 @@
 
 .playlist-container {
   display: flex;
-  flex-flow: row-reverse wrap;
-  justify-content: flex-start;
+
 }
 .playlist {
   background-color: black;
@@ -38,6 +37,15 @@ li {
   flex-direction: row;
 }
 
+.top-nav {
+  display: flex;
+
+}
+
+.side-nav {
+  display: flex;
+  justify-content: flex-end;
+}
 .playlist-name {
   height: 100%;
   width: 100%;
