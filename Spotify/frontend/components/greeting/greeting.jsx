@@ -6,7 +6,7 @@ const Greeting = ({currentUser, logout}) => (
 )
 
 const greetingMessage = (currentUser, logout) => (
-  <div>
+  <div className="greeting">
     <h1>{currentUser.username}</h1>
     <button onClick={logout}>Logout</button>
   </div>

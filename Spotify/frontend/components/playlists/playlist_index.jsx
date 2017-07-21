@@ -62,10 +62,12 @@ class PlaylistIndex extends React.Component {
 
             </nav>
             <div id="content">
+              <div className="side-nav">
+                <nav className="side-nav-container">
+                  <GreetingContainer/>
+                </nav>
+              </div>
 
-              <nav className="side-nav">
-                <GreetingContainer/>
-              </nav>
               <form className="content-form">
                 <ul className="playlist-list">
                   {playlists.map((playlist) => (

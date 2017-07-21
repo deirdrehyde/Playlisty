@@ -83,6 +83,20 @@ a {
   height: 100vh;
   z-index: 100;
 }
+.side-nav-container {
+  padding-bottom: 120px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  height: 100%;
+}
+
+.greeting {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .playlist-name {
   height: 100%;
   width: 100%;
@@ -103,6 +117,7 @@ button {
   letter-spacing: 2px;
   line-height: 1.6;
   vertical-align: middle;
+  align-self: center;
 }
 
 button:hover {
