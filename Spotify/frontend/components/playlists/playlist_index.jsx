@@ -61,7 +61,7 @@ class PlaylistIndex extends React.Component {
               }
 
             </nav>
-            <div>
+            <div id="content">
 
               <nav className="side-nav">
                 <GreetingContainer/>

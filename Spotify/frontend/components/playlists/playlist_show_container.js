@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { fetchPlaylist, destroyPlaylist } from '../../actions/playlist_actions';
-import { selectPlaylist, selectUser } from '../../reducers/selectors';
+import { selectPlaylist } from '../../reducers/selectors';
 import PlaylistShow from './playlist_show';
 
 const mapStateToProps = (state, {match}) => ({
