@@ -1,14 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class PlaylistForm extends React.Component {
+class PlaylistEditForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: "",
-      creator_id: null,
-      showComponent: true
-    };
+    this.state = this.props.playlist;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -21,33 +17,31 @@ class PlaylistForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const playlist = Object.assign({}, this.state);
-    this.props.createPlaylist(playlist).then(
-      this.props.closePlaylistForm()
+    this.props.updatePlaylist(playlist).then(
+      this.props.closePlaylistEditForm()
     );
   }
 
-
   render() {
     return (
-      <form className="playlist-form">
+      <form className="playlist-edit-form">
 
-        <h1>Create new playlist</h1>
-        <div className="playlist-input">
+        <h1>Edit Playlist Details</h1>
+        <div className="playlist-data">
           <label><h4>Playlist Name</h4>
             <br/>
             <input
               className="input"
               ref="name"
               value={ this.state.name }
-              placeholder="Start typing..."
               onChange={ this.update('name') }
               />
           </label>
         </div >
         <div className="buttons">
 
-          <button className="cancel" onClick={this.props.closePlaylistForm}>Cancel</button>
-          <button className="create-playlist" onClick={this.handleSubmit}>Create</button>
+          <button className="cancel" onClick={this.props.closePlaylistEditForm}>Cancel</button>
+          <button className="update-playlist" onClick={this.handleSubmit}>Save</button>
         </div>
 
       </form>
@@ -56,4 +50,4 @@ class PlaylistForm extends React.Component {
 
 }
 
-export default withRouter(PlaylistForm);
+export default withRouter(PlaylistEditForm);

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchPlaylist, destroyPlaylist } from '../../actions/playlist_actions';
+import { fetchPlaylist, destroyPlaylist, updatePlaylist } from '../../actions/playlist_actions';
 import { selectPlaylist } from '../../reducers/selectors';
 import PlaylistShow from './playlist_show';
 
@@ -12,6 +12,7 @@ const mapStateToProps = (state, {match}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchPlaylist: id => dispatch(fetchPlaylist(id)),
+  updatePlaylist: playlist => dispatch(updatePlaylist(playlist)),
   destroyPlaylist: playlist => dispatch(destroyPlaylist(playlist))
 })
 

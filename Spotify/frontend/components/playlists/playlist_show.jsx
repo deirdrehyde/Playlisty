@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import GreetingContainer from '../greeting/greeting_container';
 import NowPlayingContainer from '../now_playing/now_playing_container';
-
+import PlaylistEditForm from './playlist_edit_form';
 
 
 class PlaylistShow extends React.Component {
@@ -10,8 +10,11 @@ class PlaylistShow extends React.Component {
     super(props);
     this.state = {
       name: "",
-      creator_id: null
+      creator_id: null,
+      showComponent: false
     };
+    this.renderPlaylistEditForm = this.renderPlaylistEditForm.bind(this);
+    this.closePlaylistEditForm = this.closePlaylistEditForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -25,6 +28,20 @@ class PlaylistShow extends React.Component {
     this.props.destroyPlaylist(playlist).then(
       this.props.history.push('/playlists')
     );
+  }
+
+  renderPlaylistEditForm(e) {
+    e.preventDefault();
+    this.setState({
+      showComponent: true,
+    });
+  }
+
+  closePlaylistEditForm(e) {
+    if (e) { e.preventDefault(); }
+    this.setState({
+      showComponent: false,
+    });
   }
 
 
@@ -48,6 +65,16 @@ class PlaylistShow extends React.Component {
             </li>
             <li className="creators-name">By {playlist.creator}</li>
           </ul>
+          <button onClick={this.renderPlaylistEditForm}>Edit Playlist</button>
+          {this.state.showComponent ?
+            (<PlaylistEditForm
+              playlist={playlist}
+              closePlaylistEditForm={this.closePlaylistEditForm}
+              updatePlaylist={this.props.updatePlaylist}
+              />) :
+              null
+            }
+
           <button onClick={this.handleSubmit}>Delete Playlist</button>
         </div>
       </form>
