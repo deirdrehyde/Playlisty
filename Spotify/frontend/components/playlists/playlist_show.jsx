@@ -12,27 +12,32 @@ class PlaylistShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPlaylist(this.props.playlistId);
+    this.props.fetchPlaylist(this.props.playlistId).then(
+      ({playlist}) => this.props.fetchUser(playlist.creator_id)
+    )
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const { playlist } = this.props;
-    this.props.destroyPlaylist(playlist);
+    this.props.destroyPlaylist(playlist).then(
+      this.props.history.push('/playlists')
+    );
   }
 
 
 
   render() {
-    const { playlist } = this.props;
-
+    const { playlist, user } = this.props;
+    console.log(playlist);
+    console.log({user});
     return (
       <form className="playist-show">
         <ul>
           <li>
             <h2>{playlist.name}</h2>
           </li>
-          <li>By {playlist.creator_id}</li>
+          <li>By {playlist.creator}</li>
         </ul>
         <button onClick={this.handleSubmit}>Delete Playlist</button>
       </form>

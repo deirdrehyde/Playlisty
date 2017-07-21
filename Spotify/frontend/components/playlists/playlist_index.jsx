@@ -28,7 +28,7 @@ class PlaylistIndex extends React.Component {
   }
 
   closePlaylistForm(e) {
-    e.preventDefault();
+    if (e) { e.preventDefault(); }
     this.setState({
       showComponent: false,
     });

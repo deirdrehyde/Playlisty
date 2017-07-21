@@ -10,6 +10,7 @@ class PlaylistForm extends React.Component {
       showComponent: true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    console.log(this.state);
   }
 
   update(property) {
@@ -21,7 +22,9 @@ class PlaylistForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const playlist = Object.assign({}, this.state);
-    this.props.createPlaylist({playlist});
+    this.props.createPlaylist(playlist).then(
+      this.props.closePlaylistForm()
+    );
   }
 
 
