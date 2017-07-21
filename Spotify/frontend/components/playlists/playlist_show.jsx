@@ -12,9 +12,7 @@ class PlaylistShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPlaylist(this.props.playlistId).then(
-      ({playlist}) => this.props.fetchUser(playlist.creator_id)
-    )
+    this.props.fetchPlaylist(this.props.playlistId);
   }
 
   handleSubmit(e) {
@@ -28,9 +26,7 @@ class PlaylistShow extends React.Component {
 
 
   render() {
-    const { playlist, user } = this.props;
-    console.log(playlist);
-    console.log({user});
+    const { playlist } = this.props;
     return (
       <form className="playist-show">
         <ul>

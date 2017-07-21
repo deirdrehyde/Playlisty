@@ -61,27 +61,30 @@ class PlaylistIndex extends React.Component {
               }
 
             </nav>
-            <nav className="side-nav">
-              <GreetingContainer/>
-            </nav>
-            <form className="content-form">
-              <ul className="playlist-list">
-                {playlists.map((playlist) => (
-                  <div id="each-playlist">
+            <div>
 
-                    <li className="playlist" key={playlist.id}>
-                      <Link to={`/playlists/${playlist.id}`}
-                        className="playlist-name"
-                        ></Link>
-                    </li>
-                    <li>{playlist.name}</li>
-                    <li>By {playlist.creator_id}</li>
-                  </div>
-                )
-              )
-            }
-          </ul>
-        </form>
+              <nav className="side-nav">
+                <GreetingContainer/>
+              </nav>
+              <form className="content-form">
+                <ul className="playlist-list">
+                  {playlists.map((playlist) => (
+                    <div id="each-playlist">
+
+                      <li className="playlist" key={playlist.id}>
+                        <Link to={`/playlists/${playlist.id}`}
+                          className="playlist-name"
+                          ></Link>
+                      </li>
+                      <li>{playlist.name}</li>
+                      <li>By {playlist.creator}</li>
+                    </div>
+                    )
+                  )
+                }
+              </ul>
+            </form>
+            </div>
       </div>
 
       </div>
