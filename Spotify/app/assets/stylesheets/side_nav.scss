@@ -1,0 +1,25 @@
+.side-nav {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: fixed;
+  width: 220px;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.5);
+  height: 100vh;
+  z-index: 100;
+}
+.side-nav-container {
+  padding-bottom: 120px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  height: 100%;
+}
+
+.greeting {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PlaylistForm from './playlist_form';
 import GreetingContainer from '../greeting/greeting_container';
+import NowPlayingContainer from '../now_playing/now_playing_container';
 
 
 class PlaylistIndex extends React.Component {
@@ -40,7 +41,7 @@ class PlaylistIndex extends React.Component {
     return(
       <div className="playlist-container">
         <div className="now-playing-bar">
-
+          <NowPlayingContainer/>
         </div>
         <div className="top-container">
           <nav className="top-nav">
@@ -61,12 +62,12 @@ class PlaylistIndex extends React.Component {
               }
 
             </nav>
+            <div className="side-nav">
+              <nav className="side-nav-container">
+                <GreetingContainer/>
+              </nav>
+            </div>
             <div id="content">
-              <div className="side-nav">
-                <nav className="side-nav-container">
-                  <GreetingContainer/>
-                </nav>
-              </div>
 
               <form className="content-form">
                 <ul className="playlist-list">
