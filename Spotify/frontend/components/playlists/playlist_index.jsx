@@ -79,8 +79,8 @@ class PlaylistIndex extends React.Component {
                           className="playlist-name"
                           ></Link>
                       </li>
-                      <li>{playlist.name}</li>
-                      <li>By {playlist.creator}</li>
+                      <li className="name">{playlist.name}</li>
+                      <li className="creator">By {playlist.creator}</li>
                     </div>
                     )
                   )

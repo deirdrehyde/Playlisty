@@ -7,16 +7,20 @@
   flex-direction: row-reverse;
 }
 
-.playlist {
-  background-color: black;
-  list-style: none;
-  height: 150px;
-  width: 150px;
-  margin: 2%;
-  text-align: center;
-  align-items: center;
-  display: flex;
-  border: 5px solid black;
+.name {
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 300;
+  line-height: 1.6;
+  padding-bottom: 5px;
+}
+
+.creator {
+  color: #999;
+  letter-spacing: 2px;
+  font-weight: 300;
+  line-height: 1.6;
+
 }
 
 .top-container {
@@ -30,11 +34,17 @@
   display: flex;
 }
 
+.content-form{
+  margin-left: 250px;
+
+}
+
 .playlist-list {
   display: flex;
   text-align: center;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 #each-playlist {
@@ -48,22 +58,17 @@
   flex-direction: row;
 }
 
-.top-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  padding: 20px 0;
+.playlist {
+    background-color: black;
+    list-style: none;
+    height: 150px;
+    width: 150px;
+    margin: 2%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    border: 5px solid black;
 }
-
-a {
-  margin-right: 20px;
-}
-
-.nav-items {
-  margin-left: 40%;
-}
-
 
 
 .playlist-name {
@@ -157,8 +162,3 @@ h4 {
   margin-bottom: .5em;
   font-weight: 300;
 }
-
-// nav:hover {
-//   transform: scale(1.035);
-//   background-color: #1ed760;
-// }

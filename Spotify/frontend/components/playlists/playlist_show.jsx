@@ -43,10 +43,10 @@ class PlaylistShow extends React.Component {
         </div>
         <div className="playlist-info">
           <ul>
-            <li>
+            <li className="playlists-name">
               <h2>{playlist.name}</h2>
             </li>
-            <li>By {playlist.creator}</li>
+            <li className="creators-name">By {playlist.creator}</li>
           </ul>
           <button onClick={this.handleSubmit}>Delete Playlist</button>
         </div>

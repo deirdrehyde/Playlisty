@@ -1,0 +1,16 @@
+
+.top-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 250px;
+  padding: 20px 0;
+}
+
+a {
+  margin-right: 20px;
+}
+
+.nav-items {
+  align-self: center;
+}
