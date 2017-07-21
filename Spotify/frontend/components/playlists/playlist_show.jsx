@@ -8,11 +8,19 @@ class PlaylistShow extends React.Component {
       name: "",
       creator_id: null
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchPlaylist(this.props.playlistId);
+    console.log(this.props);
+    this.playlist = this.props.fetchPlaylist(this.props.playlistId);
   }
+  handleSubmit(e) {
+    e.preventDefault();
+    const { playlist } = this.props;
+    this.props.destroyPlaylist(playlist);
+  }
+
 
   render() {
     const { playlist } = this.props;
@@ -25,6 +33,7 @@ class PlaylistShow extends React.Component {
           </li>
           <li>By {playlist.creator_id}</li>
         </ul>
+        <button onClick={this.handleSubmit}>Delete Playlist</button>
       </form>
     )
   }

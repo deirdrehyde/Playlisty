@@ -37,6 +37,6 @@ export const updatePlaylist = playlist => dispatch => (
   APIUtil.updatePlaylist(playlist).then(playlist => dispatch(receivePlaylist(playlist)))
 );
 
-export const deletePlaylist = playlist => dispatch => (
-  APIUtil.destroyPlaylist(playlist).then(playlist => dispatch(removePlaylist(playlist)))
+export const destroyPlaylist = playlist => dispatch => (
+  APIUtil.deletePlaylist(playlist).then(playlist => dispatch(removePlaylist(playlist)))
 );

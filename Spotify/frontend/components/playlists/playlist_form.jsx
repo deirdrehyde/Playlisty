@@ -26,7 +26,6 @@ class PlaylistForm extends React.Component {
 
 
   render() {
-    console.log(this.props);
     return (
       <form className="playlist-form">
         <h1>Create new playlist</h1>

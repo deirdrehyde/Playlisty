@@ -34,7 +34,7 @@ class Api::PlaylistsController < ApplicationController
     end
   end
 
-  def destory
+  def destroy
     @playlist = Playlist.find(params[:id])
     @playlist.destroy
     render :index

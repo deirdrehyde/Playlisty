@@ -28,10 +28,9 @@ export const updatePlaylist = (data) => {
   })
 }
 
-export const deletePlaylist = (id) => {
+export const deletePlaylist = (playlist) => {
   return $.ajax({
     method: 'DELETE',
-    url: `api/playlists/${id}`,
-    data
+    url: `api/playlists/${playlist.id}`
   })
 }
