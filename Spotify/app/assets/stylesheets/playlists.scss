@@ -24,7 +24,7 @@
 .top-container {
   width: 100%;
   height: 80%;
-  
+
 }
 
 
@@ -46,8 +46,16 @@
 
 .top-nav {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
+a {
+  margin-right: 20px;
+}
+
+.nav-items {
+  margin-left: 40%;
 }
 
 .side-nav {
@@ -63,7 +71,6 @@
 button {
   text-transform: uppercase;
   transition: all .15s ease;
-  cursor: pointer;
   border: 0;
   border-radius: 500px;
   color: white;
@@ -73,6 +80,8 @@ button {
   display: inline-block;
   text-align: center;
   letter-spacing: 2px;
+  line-height: 1.6;
+  vertical-align: middle;
 }
 
 button:hover {
@@ -112,10 +121,25 @@ button:hover {
   font-weight: 700;
   margin-top: 20px;
   color: #1ed760;
+  letter-spacing: 2px;
 }
 
 label {
   height: 200px;
+}
+
+.buttons {
+  padding: 28px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+button.create-playlist {
+  flex-direction: row;
+}
+button.cancel {
+  background-color: transparent;
+  border: thin solid white;
 }
 
 h4 {
@@ -124,3 +148,8 @@ h4 {
   margin-bottom: .5em;
   font-weight: 300;
 }
+
+// nav:hover {
+//   transform: scale(1.035);
+//   background-color: #1ed760;
+// }

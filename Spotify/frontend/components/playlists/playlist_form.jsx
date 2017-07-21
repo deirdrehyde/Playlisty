@@ -28,6 +28,7 @@ class PlaylistForm extends React.Component {
   render() {
     return (
       <form className="playlist-form">
+
         <h1>Create new playlist</h1>
         <div className="playlist-input">
           <label><h4>Playlist Name</h4>
@@ -40,9 +41,12 @@ class PlaylistForm extends React.Component {
               onChange={ this.update('name') }
               />
           </label>
+        </div >
+        <div className="buttons">
+
+          <button className="cancel" onClick={this.props.closePlaylistForm}>Cancel</button>
+          <button className="create-playlist" onClick={this.handleSubmit}>Create</button>
         </div>
-        <button className="create-playlist" onClick={this.handleSubmit}>Create</button>
-        <button className="cancel" onClick={this.props.closePlaylistForm}>Cancel</button>
 
       </form>
     )

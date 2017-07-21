@@ -44,6 +44,13 @@ class PlaylistIndex extends React.Component {
         </div>
         <div className="top-container">
           <nav className="top-nav">
+            <ul className="nav-items">
+              <Link to="/playlists" className="nav">Playlists</Link>
+              <Link to="/songs" className="nav">Songs</Link>
+              <Link to="/albums" className="nav">Albums</Link>
+              <Link to="/artists" className="nav">Artists</Link>
+            </ul>
+
             <button onClick={this.renderPlaylistForm}>New Playlist</button>
             {this.state.showComponent ?
               (<PlaylistForm
