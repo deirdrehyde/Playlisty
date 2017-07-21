@@ -12,7 +12,6 @@ class PlaylistShow extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     this.props.fetchPlaylist(this.props.playlistId);
   }
 

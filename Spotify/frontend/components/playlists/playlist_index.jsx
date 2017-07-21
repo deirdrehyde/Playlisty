@@ -37,7 +37,6 @@ class PlaylistIndex extends React.Component {
 
   render () {
     const { playlists } = this.props;
-    console.log(this.props);
     return(
       <div className="playlist-container">
         <div className="now-playing-bar">
