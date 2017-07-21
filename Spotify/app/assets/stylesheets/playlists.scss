@@ -131,12 +131,15 @@ label {
 .buttons {
   padding: 28px 0;
   display: flex;
+  min-width: 250px;
   justify-content: space-between;
+  font-weight: 500;
 }
 
 button.create-playlist {
   flex-direction: row;
 }
+
 button.cancel {
   background-color: transparent;
   border: thin solid white;

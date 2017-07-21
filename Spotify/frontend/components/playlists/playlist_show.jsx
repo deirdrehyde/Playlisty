@@ -13,13 +13,15 @@ class PlaylistShow extends React.Component {
 
   componentDidMount() {
     console.log(this.props);
-    this.playlist = this.props.fetchPlaylist(this.props.playlistId);
+    this.props.fetchPlaylist(this.props.playlistId);
   }
+
   handleSubmit(e) {
     e.preventDefault();
     const { playlist } = this.props;
     this.props.destroyPlaylist(playlist);
   }
+
 
 
   render() {

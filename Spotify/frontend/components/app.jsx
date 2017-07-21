@@ -9,7 +9,7 @@ const App = () => (
   <div>
 
     <Switch>
-      <ProtectedRoute path='/playlists' component={PlaylistIndexContainer} />
+      <ProtectedRoute exact path='/playlists' component={PlaylistIndexContainer} />
       <ProtectedRoute exact path='/playlists/:id' component={PlaylistShowContainer} />
       <AuthRoute path='/' component={SessionFormContainer} />
       <AuthRoute path='/login' component={SessionFormContainer} />

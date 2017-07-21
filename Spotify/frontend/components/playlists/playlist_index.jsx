@@ -37,6 +37,7 @@ class PlaylistIndex extends React.Component {
 
   render () {
     const { playlists } = this.props;
+    console.log(this.props);
     return(
       <div className="playlist-container">
         <div className="now-playing-bar">
@@ -72,7 +73,6 @@ class PlaylistIndex extends React.Component {
                     <li className="playlist" key={playlist.id}>
                       <Link to={`/playlists/${playlist.id}`}
                         className="playlist-name"
-                        onClick={this.props.fetchPlaylist}
                         ></Link>
                     </li>
                     <li>{playlist.name}</li>
