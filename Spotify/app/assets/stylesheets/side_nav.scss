@@ -28,9 +28,19 @@
   letter-spacing: 2px;
   font-size: 28px;
   font-weight: 400;
+  padding: 15px 0;
 }
 
 .logo-small {
   height: 40px;
   width: 40px;
+}
+
+.top-side-nav {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  left: 0;
+  top: 0;
+  padding: 10px;
 }
