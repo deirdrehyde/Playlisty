@@ -51,17 +51,15 @@ class PlaylistIndex extends React.Component {
                 <li className="nav"><Link to="/albums">Albums</Link></li>
                 <li className="nav"><Link to="/artists">Artists</Link></li>
               </ul>
+              <button className="new-playlist" onClick={this.renderPlaylistForm}>New Playlist</button>
+              {this.state.showComponent ?
+                (<PlaylistForm
+                  closePlaylistForm={this.closePlaylistForm}
+                  createPlaylist={this.props.createPlaylist}
+                  />) :
+                  null
+                }
             </nav>
-
-            <button onClick={this.renderPlaylistForm}>New Playlist</button>
-            {this.state.showComponent ?
-              (<PlaylistForm
-                closePlaylistForm={this.closePlaylistForm}
-                createPlaylist={this.props.createPlaylist}
-                />) :
-                null
-              }
-
             </nav>
             <div className="side-nav">
               <nav className="side-nav-container">
