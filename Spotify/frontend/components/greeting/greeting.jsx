@@ -7,8 +7,14 @@ const Greeting = ({currentUser, logout}) => (
 
 const greetingMessage = (currentUser, logout) => (
   <div className="greeting">
-    <h1>{currentUser.username}</h1>
-    <button onClick={logout}>Logout</button>
+    <div className="top-side-nav">
+      <img className="logo-small" src="http://res.cloudinary.com/douzdapki/image/upload/v1500486429/Refresh_xdfvbr.png" />
+      <Link to='/playlists' className='playlist-nav'>Your Music</Link>
+    </div>
+    <div className="bottom-side-nav">
+      <h1>{currentUser.username}</h1>
+      <button onClick={logout}>Logout</button>
+    </div>
   </div>
 )
 

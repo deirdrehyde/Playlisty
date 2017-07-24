@@ -90,7 +90,7 @@ class PlaylistIndex extends React.Component {
               </ul>
             </form>
             </div>
-      </div>
+          </div>
 
       </div>
     )
