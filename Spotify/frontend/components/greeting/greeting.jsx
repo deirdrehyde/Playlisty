@@ -13,7 +13,7 @@ const greetingMessage = (currentUser, logout) => (
       <Link to='/playlists' className='playlist-nav'>Your Music</Link>
     </div>
     <div className="bottom-side-nav">
-      <h1>{currentUser.username}</h1>
+      <h3>{currentUser.username}</h3>
       <button onClick={logout}>Logout</button>
     </div>
   </div>
