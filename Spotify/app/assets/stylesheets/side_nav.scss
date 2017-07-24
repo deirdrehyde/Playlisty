@@ -32,7 +32,18 @@
   color: grey;
 }
 
-.playlist-nav:hover {
+.search-nav {
+  letter-spacing: 2px;
+  font-size: 28px;
+  font-weight: 400;
+  padding: 15px 0;
+  color: grey;
+  border-top: thin solid grey;
+  border-bottom: thin solid grey;
+  margin: 15px 0;
+}
+
+.playlist-nav:hover, .search-nav:hover {
   transform: scale(1.035);
   color: white;
 }
@@ -49,4 +60,10 @@
   left: 0;
   top: 0;
   padding: 10px;
+}
+
+.bottom-side-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
