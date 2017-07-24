@@ -25,10 +25,10 @@ class SongIndex extends React.Component {
           <nav className="top-nav">
             <nav className = "nav-items">
               <ul className="nav-items-list">
-                <Link to="/playlists" className="nav">Playlists</Link>
-                <Link to="/songs" className="nav">Songs</Link>
-                <Link to="/albums" className="nav">Albums</Link>
-                <Link to="/artists" className="nav">Artists</Link>
+                <li className="nav"><Link to="/playlists">Playlists</Link></li>
+                <li className="nav"><Link to="/songs">Songs</Link></li>
+                <li className="nav"><Link to="/albums">Albums</Link></li>
+                <li className="nav"><Link to="/artists">Artists</Link></li>
               </ul>
             </nav>
           </nav>

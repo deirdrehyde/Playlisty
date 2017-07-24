@@ -9,6 +9,7 @@
 
 a {
   margin-right: 20px;
+  color: #a0a0a0;
 }
 
 .nav-items {
@@ -16,4 +17,18 @@ a {
   display: flex;
   width: 85%;
   justify-content: center;
+}
+
+.nav-items-list {
+  display: flex;
+}
+
+a:hover {
+  transform: scale(1.035);
+  color: white;
+}
+
+a:active {
+  color: white;
+  border-bottom: thick solid #2ebd59;
 }
