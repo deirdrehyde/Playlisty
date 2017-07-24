@@ -62,13 +62,13 @@ class PlaylistShow extends React.Component {
         <div className="playlist-details">
 
             <div className="playlist-info">
-              <ul>
+              <ul className="info">
                 <li className="playlists-name">
                   <h2>{playlist.name}</h2>
                 </li>
                 <li className="creators-name">By {playlist.creator}</li>
               </ul>
-              <button onClick={this.renderPlaylistEditForm}>Edit Playlist</button>
+              <button className="edit" onClick={this.renderPlaylistEditForm}>Edit Playlist</button>
               {this.state.showComponent ?
                 (<PlaylistEditForm
                   playlist={playlist}
@@ -78,7 +78,7 @@ class PlaylistShow extends React.Component {
                   null
                 }
 
-              <button onClick={this.handleSubmit}>Delete Playlist</button>
+              <button className="delete" onClick={this.handleSubmit}>Delete Playlist</button>
             </div>
             <div className='playlist-song-list'>
               <form className="song-form">
