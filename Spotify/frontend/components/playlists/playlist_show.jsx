@@ -49,7 +49,6 @@ class PlaylistShow extends React.Component {
 
   render() {
     const { playlist, songs } = this.props;
-    console.log(songs);
     return (
       <form className="playist-show">
         <div className="side-nav">

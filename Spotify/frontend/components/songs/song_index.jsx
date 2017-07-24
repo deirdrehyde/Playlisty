@@ -16,7 +16,6 @@ class SongIndex extends React.Component {
 
   render () {
     const { songs } = this.props;
-    console.log(songs);
     return(
       <div className="song-container">
         <div className="now-playing-bar">
@@ -41,7 +40,7 @@ class SongIndex extends React.Component {
         </div>
 
 
-        <form className="song-form">
+        <form className="song-form-index">
 
           <ul className="song-list">
             {songs.map((song) => (
