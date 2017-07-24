@@ -9,7 +9,7 @@ class Api::PlaylistsController < ApplicationController
     if @playlist.save
       render :show
     else
-      render json: @playlist.errors.full_messages
+      render json: @playlist.errors.full_messages, status: 400
     end
   end
 

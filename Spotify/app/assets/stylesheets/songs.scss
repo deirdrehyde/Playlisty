@@ -1,3 +1,13 @@
 // Place all the styles related to the Songs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.song-form {
+  margin-left: 250px;
+}
+
+#each-song {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+}

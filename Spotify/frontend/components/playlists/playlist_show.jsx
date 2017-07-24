@@ -19,7 +19,8 @@ class PlaylistShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPlaylist(this.props.playlistId);
+    this.props.fetchPlaylist(this.props.playlistId)
+      .then(this.props.fetchPlaylistSongs(this.props.playlistId));
   }
 
   handleSubmit(e) {
@@ -47,7 +48,8 @@ class PlaylistShow extends React.Component {
 
 
   render() {
-    const { playlist } = this.props;
+    const { playlist, songs } = this.props;
+    console.log(songs);
     return (
       <form className="playist-show">
         <div className="side-nav">
@@ -58,24 +60,44 @@ class PlaylistShow extends React.Component {
         <div className="now-playing-bar">
           <NowPlayingContainer/>
         </div>
-        <div className="playlist-info">
-          <ul>
-            <li className="playlists-name">
-              <h2>{playlist.name}</h2>
-            </li>
-            <li className="creators-name">By {playlist.creator}</li>
-          </ul>
-          <button onClick={this.renderPlaylistEditForm}>Edit Playlist</button>
-          {this.state.showComponent ?
-            (<PlaylistEditForm
-              playlist={playlist}
-              closePlaylistEditForm={this.closePlaylistEditForm}
-              updatePlaylist={this.props.updatePlaylist}
-              />) :
-              null
-            }
+        <div className="playlist-details">
 
-          <button onClick={this.handleSubmit}>Delete Playlist</button>
+            <div className="playlist-info">
+              <ul>
+                <li className="playlists-name">
+                  <h2>{playlist.name}</h2>
+                </li>
+                <li className="creators-name">By {playlist.creator}</li>
+              </ul>
+              <button onClick={this.renderPlaylistEditForm}>Edit Playlist</button>
+              {this.state.showComponent ?
+                (<PlaylistEditForm
+                  playlist={playlist}
+                  closePlaylistEditForm={this.closePlaylistEditForm}
+                  updatePlaylist={this.props.updatePlaylist}
+                  />) :
+                  null
+                }
+
+              <button onClick={this.handleSubmit}>Delete Playlist</button>
+            </div>
+            <div className='playlist-song-list'>
+              <form className="song-form">
+
+                <ul className="song-list">
+                  {songs.map((song) => (
+                    <div id="each-song">
+                      <li className="name">{song.title}</li>
+                      <li className="duration">{song.duration}</li>
+                      <li className="url">{song.song_url}</li>
+                    </div>
+                    )
+                    )
+                  }
+                </ul>
+              </form>
+
+            </div>
         </div>
       </form>
     )
