@@ -29,6 +29,12 @@
   font-size: 28px;
   font-weight: 400;
   padding: 15px 0;
+  color: grey;
+}
+
+.playlist-nav:hover {
+  transform: scale(1.035);
+  color: white;
 }
 
 .logo-small {
