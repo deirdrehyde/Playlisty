@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 import NowPlaying from './now_playing';
 
 const mapStateToProps = (state) => ({
-  currentUser: state.session.currentUser
+  currentSong: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  playSong: song => dispatch(playSong(song))
 });
 
 export default connect(

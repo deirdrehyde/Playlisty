@@ -3,7 +3,6 @@ import { Link, withRouter } from 'react-router-dom';
 import GreetingContainer from '../greeting/greeting_container';
 import NowPlayingContainer from '../now_playing/now_playing_container';
 import PlaylistEditForm from './playlist_edit_form';
-import ReactPlayer from 'react-player';
 
 
 
@@ -46,12 +45,6 @@ class PlaylistShow extends React.Component {
       showComponent: false,
     });
   }
-
-  // playSong(e) {
-  //   e.preventDefault();
-  //   <ReactPlayer url=
-  // }
-
 
 
   render() {

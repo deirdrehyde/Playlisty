@@ -4,7 +4,6 @@ import PlaylistForm from './playlist_form';
 import GreetingContainer from '../greeting/greeting_container';
 import NowPlayingContainer from '../now_playing/now_playing_container';
 
-
 class PlaylistIndex extends React.Component {
   constructor(props) {
     super(props);
