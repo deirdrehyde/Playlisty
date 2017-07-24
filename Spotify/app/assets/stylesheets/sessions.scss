@@ -2,13 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  background-image: url(https://res.cloudinary.com/douzdapki/image/upload/v1500486166/pexels-photo-487434.png_rgvpot.png);
-  background-size: cover;
-  background-repeat: no-repeat;
+
   background-color: #121314;
   color: white;
   height: 100%;
 
+}
+
+.front-page {
+  background-image: url(https://res.cloudinary.com/douzdapki/image/upload/v1500486166/pexels-photo-487434.png_rgvpot.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .header {

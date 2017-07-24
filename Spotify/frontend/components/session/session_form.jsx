@@ -67,7 +67,7 @@ class SessionForm extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="front-page">
 
         <div className="header">
           <img className="logo" src="http://res.cloudinary.com/douzdapki/image/upload/v1500486429/Refresh_xdfvbr.png"/>
