@@ -14,7 +14,7 @@ class NowPlaying extends React.Component {
   render() {
     return(
       <div className="play-bar">
-        <NextButton />
+        <PrevButton />
         <PlayButton />
         <NextButton />
         <ReactPlayer height="0" width="0" style="player" url="http://res.cloudinary.com/douzdapki/video/upload/v1500915413/397913__rendersound2214__pencil-sharpener_ejrjsp.wav"  />
