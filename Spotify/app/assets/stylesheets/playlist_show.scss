@@ -20,3 +20,17 @@
 .playlist-song-list {
   padding: 5px;
 }
+
+.playlist-edit-form {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background-color: rgba(0,0,0,.9);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  justify-content: center;
+  z-index: 104;
+}

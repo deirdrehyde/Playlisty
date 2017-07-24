@@ -3,6 +3,8 @@ import { Link, withRouter } from 'react-router-dom';
 import GreetingContainer from '../greeting/greeting_container';
 import NowPlayingContainer from '../now_playing/now_playing_container';
 import PlaylistEditForm from './playlist_edit_form';
+import ReactPlayer from 'react-player';
+
 
 
 class PlaylistShow extends React.Component {
@@ -45,12 +47,17 @@ class PlaylistShow extends React.Component {
     });
   }
 
+  // playSong(e) {
+  //   e.preventDefault();
+  //   <ReactPlayer url=
+  // }
+
 
 
   render() {
     const { playlist, songs } = this.props;
     return (
-      <form className="playist-show">
+      <form className="playlist-show">
         <div className="side-nav">
           <nav className="side-nav-container">
             <GreetingContainer/>
@@ -86,6 +93,7 @@ class PlaylistShow extends React.Component {
                 <ul className="song-list">
                   {songs.map((song) => (
                     <div id="each-song">
+
                       <li className="name">{song.title}</li>
                       <li className="duration">{song.duration}</li>
                       <li className="url">{song.song_url}</li>
