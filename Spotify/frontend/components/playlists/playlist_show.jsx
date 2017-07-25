@@ -4,6 +4,7 @@ import GreetingContainer from '../greeting/greeting_container';
 import NowPlayingContainer from '../now_playing/now_playing_container';
 import PlaylistEditForm from './playlist_edit_form';
 import { PlayButton } from 'react-player-controls';
+import ReactPlayer from 'react-player';
 
 
 
@@ -20,6 +21,7 @@ class PlaylistShow extends React.Component {
     this.closePlaylistEditForm = this.closePlaylistEditForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.playPlaylist = this.playPlaylist.bind(this);
+    this.playPauseSong = this.playPauseSong.bind(this);
   }
 
   componentDidMount() {
@@ -53,6 +55,16 @@ class PlaylistShow extends React.Component {
     e.preventDefault();
     this.setState({
       isPlaying: true
+    });
+    return(
+      <ReactPlayer playing={this.state.isPlaying}/>
+    )
+  }
+  playPauseSong(e) {
+    // e.preventDefault();
+    console.log("PLAY!!");
+    this.setState({
+      isPlaying: !this.state.isPlaying
     });
   }
 
@@ -103,11 +115,12 @@ class PlaylistShow extends React.Component {
 
                 <ul className="song-list">
                   {songs.map((song) => (
-                    <div id="each-song">
-                      <PlayButton onClick={this.playSong}/>
+                    <div id="each-song" key={song.id}>
+                      <PlayButton onClick={this.playPauseSong} isEnabled={true}/>
+                      <ReactPlayer height="0" width="0" url={song.song_url} playing={this.state.isPlaying}/>
                       <li className="name">{song.title}</li>
                       <li className="duration">{song.duration}</li>
-                      <li className="url">{song.song_url}</li>
+                      <li className="url">{song.artist}</li>
                     </div>
                     )
                     )
