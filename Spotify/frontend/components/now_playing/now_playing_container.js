@@ -6,7 +6,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  playSong: song => dispatch(playSong(song))
+  playSong: song => dispatch(playSong(song)),
+  pauseSong: () => dispatch(pauseSong())
 });
 
 export default connect(

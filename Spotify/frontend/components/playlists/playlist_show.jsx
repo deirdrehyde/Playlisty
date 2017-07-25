@@ -116,10 +116,14 @@ class PlaylistShow extends React.Component {
                 <ul className="song-list">
                   {songs.map((song) => (
                     <div id="each-song" key={song.id}>
-
-                        <PlayButton onClick={this.playPauseSong} isEnabled={true}/>
-              
-                        <PauseButton onClick={this.playPauseSong} isEnabled={true}/>
+                      {this.state.isPlaying ?
+                        (<PauseButton
+                          onClick={this.playPauseSong}
+                          isEnabled={true}/>) :
+                          (<PlayButton
+                            onClick={this.playPauseSong}
+                            isEnabled={true}/>)
+                      }
 
 
                       <ReactPlayer height="0" width="0" url={song.song_url} playing={this.state.isPlaying}/>
