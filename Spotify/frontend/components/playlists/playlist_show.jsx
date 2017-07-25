@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import GreetingContainer from '../greeting/greeting_container';
 import NowPlayingContainer from '../now_playing/now_playing_container';
 import PlaylistEditForm from './playlist_edit_form';
-import { PlayButton } from 'react-player-controls';
+import { PlayButton, PauseButton } from 'react-player-controls';
 import ReactPlayer from 'react-player';
 
 
@@ -116,7 +116,12 @@ class PlaylistShow extends React.Component {
                 <ul className="song-list">
                   {songs.map((song) => (
                     <div id="each-song" key={song.id}>
-                      <PlayButton onClick={this.playPauseSong} isEnabled={true}/>
+
+                        <PlayButton onClick={this.playPauseSong} isEnabled={true}/>
+              
+                        <PauseButton onClick={this.playPauseSong} isEnabled={true}/>
+
+
                       <ReactPlayer height="0" width="0" url={song.song_url} playing={this.state.isPlaying}/>
                       <li className="name">{song.title}</li>
                       <li className="duration">{song.duration}</li>
