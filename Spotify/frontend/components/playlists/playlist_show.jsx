@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import GreetingContainer from '../greeting/greeting_container';
 import NowPlayingContainer from '../now_playing/now_playing_container';
 import PlaylistEditForm from './playlist_edit_form';
+import { PlayButton } from 'react-player-controls';
 
 
 
@@ -12,11 +13,13 @@ class PlaylistShow extends React.Component {
     this.state = {
       name: "",
       creator_id: null,
-      showComponent: false
+      showComponent: false,
+      playing: false
     };
     this.renderPlaylistEditForm = this.renderPlaylistEditForm.bind(this);
     this.closePlaylistEditForm = this.closePlaylistEditForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.playPlaylist = this.playPlaylist.bind(this);
   }
 
   componentDidMount() {
@@ -46,6 +49,13 @@ class PlaylistShow extends React.Component {
     });
   }
 
+  playPlaylist(e) {
+    e.preventDefault();
+    this.setState({
+      playing: true,
+    });
+  }
+
 
   render() {
     const { playlist, songs } = this.props;
@@ -63,6 +73,9 @@ class PlaylistShow extends React.Component {
 
             <div className="playlist-info">
               <ul className="info">
+                <li className="playlist" key={playlist.id} onClick={this.playPlaylist}>
+                  
+                </li>
                 <li className="playlists-name">
                   <h2>{playlist.name}</h2>
                 </li>
@@ -86,7 +99,7 @@ class PlaylistShow extends React.Component {
                 <ul className="song-list">
                   {songs.map((song) => (
                     <div id="each-song">
-
+                      <PlayButton onClick={this.playSong}/>
                       <li className="name">{song.title}</li>
                       <li className="duration">{song.duration}</li>
                       <li className="url">{song.song_url}</li>

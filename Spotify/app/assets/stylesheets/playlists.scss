@@ -69,6 +69,12 @@
   align-items: center;
   display: flex;
   border: 5px solid black;
+  cursor: pointer;
+}
+
+.playlist:hover {
+  transform: scale(1.035);
+  background-color: #1ed760;
 }
 
 

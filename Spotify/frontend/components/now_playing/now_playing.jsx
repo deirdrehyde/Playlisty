@@ -1,23 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import { PlayButton, PrevButton, NextButton } from 'react-player-controls';
+import { PlaybackControls } from 'react-player-controls';
 
 class NowPlaying extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //
-    // }
+    this.state = {
+      currentSong: "",
+      currentSongUrl: "",
+      playing: false
+    }
   }
 
   render() {
     return(
       <div className="play-bar">
-        <PrevButton />
-        <PlayButton />
-        <NextButton />
-        <ReactPlayer height="0" width="0" style="player" url="http://res.cloudinary.com/douzdapki/video/upload/v1500915413/397913__rendersound2214__pencil-sharpener_ejrjsp.wav"  />
+        <PlaybackControls />
+
+        <ReactPlayer height="0" width="0" style="player" url={this.currentSongUrl}  />
       </div>
     )
   }
