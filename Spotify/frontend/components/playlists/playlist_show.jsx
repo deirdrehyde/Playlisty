@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import GreetingContainer from '../greeting/greeting_container';
 import NowPlayingContainer from '../now_playing/now_playing_container';
+import NowPlaying from '../now_playing/now_playing';
 import PlaylistEditForm from './playlist_edit_form';
 import { PlayButton, PauseButton } from 'react-player-controls';
 import ReactPlayer from 'react-player';
@@ -56,9 +57,7 @@ class PlaylistShow extends React.Component {
     this.setState({
       isPlaying: true
     });
-    return(
-      <ReactPlayer playing={this.state.isPlaying}/>
-    )
+
   }
   playPauseSong(e) {
     // e.preventDefault();
@@ -66,6 +65,9 @@ class PlaylistShow extends React.Component {
     this.setState({
       isPlaying: !this.state.isPlaying
     });
+    <NowPlayingContainer
+      playing={this.state.isPlaying}
+      />
   }
 
 
@@ -91,7 +93,16 @@ class PlaylistShow extends React.Component {
             <div className="playlist-info">
               <ul className="info">
                 <li className="playlist" key={playlist.id}>
-                  <PlayButton className="playlist-play" onClick={this.playPlaylist} />
+                  {this.state.isPlaying ?
+                    (<PauseButton
+                      className="playlist-play"
+                      onClick={this.playPauseSong}
+                      isEnabled={true}/>) :
+                      (<PlayButton
+                        className="playlist-play"
+                        onClick={this.playPauseSong}
+                        isEnabled={true}/>)
+                  }
                 </li>
                 <li className="playlists-name">
                   <h2>{playlist.name}</h2>
@@ -125,8 +136,6 @@ class PlaylistShow extends React.Component {
                             isEnabled={true}/>)
                       }
 
-
-                      <ReactPlayer height="0" width="0" url={song.song_url} playing={this.state.isPlaying}/>
                       <li className="name">{song.title}</li>
                       <li className="duration">{song.duration}</li>
                       <li className="url">{song.artist}</li>
