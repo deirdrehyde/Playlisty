@@ -70,11 +70,11 @@
   display: flex;
   border: 5px solid black;
   cursor: pointer;
+  justify-content: center;
 }
 
 .playlist:hover {
   transform: scale(1.035);
-  background-color: #1ed760;
 }
 
 

@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import PlaylistForm from './playlist_form';
 import GreetingContainer from '../greeting/greeting_container';
 import NowPlayingContainer from '../now_playing/now_playing_container';
+import { PlayButton } from 'react-player-controls';
 
 class PlaylistIndex extends React.Component {
   constructor(props) {

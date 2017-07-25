@@ -14,7 +14,7 @@ class PlaylistShow extends React.Component {
       name: "",
       creator_id: null,
       showComponent: false,
-      playing: false
+      isPlaying: false
     };
     this.renderPlaylistEditForm = this.renderPlaylistEditForm.bind(this);
     this.closePlaylistEditForm = this.closePlaylistEditForm.bind(this);
@@ -38,21 +38,21 @@ class PlaylistShow extends React.Component {
   renderPlaylistEditForm(e) {
     e.preventDefault();
     this.setState({
-      showComponent: true,
+      showComponent: true
     });
   }
 
   closePlaylistEditForm(e) {
     if (e) { e.preventDefault(); }
     this.setState({
-      showComponent: false,
+      showComponent: false
     });
   }
 
   playPlaylist(e) {
     e.preventDefault();
     this.setState({
-      playing: true,
+      isPlaying: true
     });
   }
 
@@ -61,20 +61,25 @@ class PlaylistShow extends React.Component {
     const { playlist, songs } = this.props;
     return (
       <form className="playlist-show">
+
         <div className="side-nav">
           <nav className="side-nav-container">
             <GreetingContainer/>
           </nav>
         </div>
+
+
         <div className="now-playing-bar">
           <NowPlayingContainer/>
         </div>
+
+
         <div className="playlist-details">
 
             <div className="playlist-info">
               <ul className="info">
-                <li className="playlist" key={playlist.id} onClick={this.playPlaylist}>
-                  
+                <li className="playlist" key={playlist.id}>
+                  <PlayButton className="playlist-play" onClick={this.playPlaylist} />
                 </li>
                 <li className="playlists-name">
                   <h2>{playlist.name}</h2>
@@ -90,9 +95,9 @@ class PlaylistShow extends React.Component {
                   />) :
                   null
                 }
-
               <button className="delete" onClick={this.handleSubmit}>Delete Playlist</button>
             </div>
+
             <div className='playlist-song-list'>
               <form className="song-form">
 
@@ -109,9 +114,9 @@ class PlaylistShow extends React.Component {
                   }
                 </ul>
               </form>
-
             </div>
-        </div>
+
+          </div>
       </form>
     )
   }

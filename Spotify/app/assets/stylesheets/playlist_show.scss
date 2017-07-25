@@ -6,14 +6,16 @@
   align-self: center;
 }
 
-button#play {
-  height: 150px;
-  width: 150px;
+.playlist-play {
+  background: white;
+  height: 70px;
+  width: 40px;
+  border: thin solid white;
 }
 
-button#play:hover {
-  background-color: grey;
-  border: none;
+.playlist-play:hover {
+  transform: scale(1.035);
+  color: white;
 }
 
 ul.info {

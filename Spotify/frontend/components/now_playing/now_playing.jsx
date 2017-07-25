@@ -9,7 +9,7 @@ class NowPlaying extends React.Component {
     this.state = {
       currentSong: "",
       currentSongUrl: "",
-      playing: false
+      isPlaying: false
     }
   }
 
