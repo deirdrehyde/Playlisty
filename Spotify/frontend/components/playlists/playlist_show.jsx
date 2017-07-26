@@ -2,11 +2,8 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import GreetingContainer from '../greeting/greeting_container';
 import NowPlayingContainer from '../now_playing/now_playing_container';
-import NowPlaying from '../now_playing/now_playing';
 import PlaylistEditForm from './playlist_edit_form';
 import { PlayButton, PauseButton } from 'react-player-controls';
-import ReactPlayer from 'react-player';
-
 
 
 class PlaylistShow extends React.Component {
@@ -84,7 +81,9 @@ class PlaylistShow extends React.Component {
 
 
         <div className="now-playing-bar">
-          <NowPlayingContainer/>
+          <NowPlayingContainer
+              playing={this.state.isPlaying}
+            />
         </div>
 
 

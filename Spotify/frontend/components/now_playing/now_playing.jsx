@@ -8,7 +8,7 @@ class NowPlaying extends React.Component {
     super(props);
     this.state = {
       url: null,
-      playing: true,
+      playing: false,
       volume: 0.8,
       played: 0,
       loaded: 0,
@@ -28,7 +28,8 @@ class NowPlaying extends React.Component {
     })
   }
   playPause() {
-    this.setState({ playing: !this.state.playing })
+    this.setState({ playing: !this.state.playing });
+    console.log("playingggg");
   }
   stop() {
     this.setState({ url: null, playing: false })
@@ -44,7 +45,14 @@ class NowPlaying extends React.Component {
     return(
       <div className="play-bar">
 
-        <PlaybackControls />
+        {this.state.playing ?
+          (<PauseButton
+            onClick={this.playPause}
+            isEnabled={true}/>) :
+            (<PlayButton
+              onClick={this.playPause}
+              isEnabled={true}/>)
+        }
           <div className='player-wrapper'>
               <ReactPlayer
                 ref={player => { this.player = player }}
