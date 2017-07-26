@@ -75,6 +75,7 @@ class PlaylistShow extends React.Component {
                       url={
                         songs.map((song) => (song.song_url))
                       }
+                      nowPlayingPlaylist={ playlist }
                     />
 
                 </li>
@@ -102,7 +103,7 @@ class PlaylistShow extends React.Component {
                   {songs.map((song) => (
                     <div id="each-song" key={song.id}>
                       <NowPlayingContainer
-                        url={song.song_url}
+                        nowPlayingSong={song}
                         />
                       <li className="name">{song.title}</li>
                       <li className="duration">

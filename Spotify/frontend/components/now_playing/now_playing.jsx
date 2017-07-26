@@ -31,8 +31,11 @@ class NowPlaying extends React.Component {
   playPause() {
     this.setState({
       playing: !this.state.playing,
-      url: (this.props.url ? this.props.url : this.state.url ),
+      nowPlayingPlaylist: this.props.nowPlayingPlaylist,
+      nowPlayingSong: (this.props.nowPlayingSong ? this.props.nowPlayingSong : this.props.nowPlayingPlaylist[0]),
+      url: (this.props.nowPlayingSong ? this.props.nowPlayingSong.song_url : this.props.nowPlayingPlaylist[0].song_url)
     });
+    this.props.setSong(this.props.nowPlayingSong);
     console.log("playingggg");
   }
 
@@ -43,12 +46,13 @@ class NowPlaying extends React.Component {
 
   render() {
     const {
-      playing, volume,
+      url, playing, volume,
       played, loaded, duration,
       playbackRate
     } = this.state
-    const { url } = this.state
+    const { nowPlayingSong } = this.props
     console.log(this.props);
+    console.log(this.state);
     return(
       <div className="play-bar">
 
@@ -60,7 +64,7 @@ class NowPlaying extends React.Component {
               onClick={this.playPause}
               isEnabled={true}/>)
         }
-      
+
 
           <div className='player-wrapper'>
               <ReactPlayer

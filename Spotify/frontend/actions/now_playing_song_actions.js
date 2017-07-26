@@ -9,10 +9,12 @@ export const pauseSong = () =>({
   type: PAUSE
 });
 
-export const playSong = () =>({
-  type: PLAY
+export const playSong = (song) =>({
+  type: PLAY,
+  song
 });
 
-export const setSong = () =>({
-  type: SET
+export const setSong = (song) =>({
+  type: SET,
+  song
 });
