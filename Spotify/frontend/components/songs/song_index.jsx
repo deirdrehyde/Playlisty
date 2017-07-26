@@ -45,8 +45,12 @@ class SongIndex extends React.Component {
             {songs.map((song) => (
               <div id="each-song">
                 <li className="name">{song.title}</li>
-                <li className="duration">{song.duration}</li>
-                <li className="url">{song.song_url}</li>
+                  <li className="duration">
+                    {Math.floor(song.duration/60)}:
+                      {(song.duration%60 < 10) ?
+                        Math.floor(song.duration%60)+"0" : Math.floor(song.duration%60)}
+                  </li>
+                <li className="url">{song.artist}</li>
               </div>
               )
             )
