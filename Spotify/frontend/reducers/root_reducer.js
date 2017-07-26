@@ -2,7 +2,8 @@ import SessionReducer from './session_reducer';
 import PlaylistReducer from './playlist_reducer';
 import SongReducer from './song_reducer';
 import ArtistReducer from './artist_reducer';
-import NowPlayingReducer from './now_playing_reducer';
+import NowPlayingSongReducer from './now_playing_song_reducer';
+import NowPlayingPlaylistReducer from './now_playing_playlist_reducer';
 import SearchReducer from './search_reducer';
 import { combineReducers } from 'redux';
 
@@ -11,7 +12,8 @@ const RootReducer = combineReducers({
   playlists: PlaylistReducer,
   songs: SongReducer,
   artists: ArtistReducer,
-  now_playing: NowPlayingReducer,
+  nowPlayingSong: NowPlayingSongReducer,
+  nowPlayingPlaylist: NowPlayingPlaylistReducer,
   search: SearchReducer
 });
 

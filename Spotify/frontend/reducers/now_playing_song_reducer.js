@@ -1,8 +1,6 @@
-import {
-  PAUSE,
-  PLAY } from '../actions/now_playing_actions';
+import { PAUSE, PLAY, SET } from '../actions/now_playing_song_actions';
 
-const NowPlayingReducer = (state = {}, action) => {
+const NowPlayingSongReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case PAUSE:
@@ -11,10 +9,12 @@ const NowPlayingReducer = (state = {}, action) => {
     case PLAY:
       return Object.assign({}, state, {playing: true});
 
+    case SET:
+      return Object.assign({}, state, {playing: true});
 
     default:
       return state;
   }
 };
 
-export default NowPlayingReducer;
+export default NowPlayingSongReducer;

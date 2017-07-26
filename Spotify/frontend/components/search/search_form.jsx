@@ -7,10 +7,17 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchword: ""
+      searchword: "",
+      playlists: [],
+      songs: [],
+      artists: []
     }
     this.fetchMatches = this.fetchMatches.bind(this);
 
+  }
+
+  componentDidMount() {
+    this.fetchMatches();
   }
 
   update(property) {
