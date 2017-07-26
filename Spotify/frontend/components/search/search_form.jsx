@@ -13,18 +13,12 @@ class SearchForm extends React.Component {
 
   }
 
-  componentDidMount() {
-    this.fetchMatches();
-  }
-
   update(property) {
-
     return(
       e => {
         this.setState({
         [property]: e.target.value
-      }, this.fetchMatches)
-
+        }, this.fetchMatches)
       }
     )
   }
