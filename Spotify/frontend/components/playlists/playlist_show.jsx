@@ -50,21 +50,16 @@ class PlaylistShow extends React.Component {
   }
 
   playPlaylist(e) {
-    e.preventDefault();
     this.setState({
       isPlaying: true
     });
 
   }
   playPauseSong(e) {
-    // e.preventDefault();
-    console.log("PLAY!!");
     this.setState({
       isPlaying: !this.state.isPlaying
     });
-    <NowPlayingContainer
-      playing={this.state.isPlaying}
-      />
+
   }
 
 
@@ -83,6 +78,7 @@ class PlaylistShow extends React.Component {
         <div className="now-playing-bar">
           <NowPlayingContainer
               playing={this.state.isPlaying}
+              url={this.state.currentSongUrl}
             />
         </div>
 
@@ -126,15 +122,9 @@ class PlaylistShow extends React.Component {
                 <ul className="song-list">
                   {songs.map((song) => (
                     <div id="each-song" key={song.id}>
-                      {this.state.isPlaying ?
-                        (<PauseButton
-                          onClick={this.playPauseSong}
-                          isEnabled={true}/>) :
-                          (<PlayButton
-                            onClick={this.playPauseSong}
-                            isEnabled={true}/>)
-                      }
-
+                      <NowPlayingContainer
+                        url={song.song_url}
+                        />
                       <li className="name">{song.title}</li>
                       <li className="duration">{song.duration}</li>
                       <li className="url">{song.artist}</li>
