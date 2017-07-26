@@ -7,9 +7,8 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ""
+      searchword: ""
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
@@ -17,15 +16,15 @@ class SearchForm extends React.Component {
     return e => this.setState({
       [property]: e.target.value
     });
+    this.props.fetchMatchingPlaylists(this.state.searchword);
+    this.props.fetchMatchingSongs(this.state.searchword);
+    this.props.fetchMatchingArtists(this.state.searchword);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const playlist = Object.assign({}, this.state);
 
-  }
 
   render() {
+    console.log(this.props);
     return(
       <form className="search-form">
 
@@ -48,9 +47,9 @@ class SearchForm extends React.Component {
             <input
               className="input"
               ref="name"
-              value={ this.state.name }
+              value={ this.state.searchword }
               placeholder="Start typing..."
-              onChange={ this.update('name') }
+              onChange={ this.update('searchword') }
               />
             </label>
           </div >

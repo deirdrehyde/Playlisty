@@ -1,18 +1,18 @@
 import SearchForm from './search_form';
 import { connect } from 'react-redux';
-import { fetchPlaylists, fetchSongs, fetchArtists } from '../../actions/search_actions';
-
+import { fetchMatchingPlaylists, fetchMatchingSongs, fetchMatchingArtists } from '../../actions/search_actions';
+import { allSongs, allPlaylists, allArtists } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => ({
-  // songs: selectSongs(state, match.params.id),
-  // playlists: selectPlaylists(state, match.params.id),
-  // artists: selectArtists(state, match.params.id)
+  songs: allSongs(state),
+  playlists: allPlaylists(state),
+  artists: allArtists(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchPlaylists: id => dispatch(fetchPlaylists(id)),
-  fetchSongs: id => dispatch(fetchSongs(id)),
-  fetchArtists: id => dispatch(fetchArtists(id))
+  fetchMatchingPlaylists: name => dispatch(fetchMatchingPlaylists(name)),
+  fetchMatchingSongs: title => dispatch(fetchMatchingSongs(title)),
+  fetchMatchingArtists: name => dispatch(fetchMatchingArtists(name))
 });
 
 export default connect(

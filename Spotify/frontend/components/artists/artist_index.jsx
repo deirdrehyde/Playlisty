@@ -4,20 +4,20 @@ import GreetingContainer from '../greeting/greeting_container';
 import NowPlayingContainer from '../now_playing/now_playing_container';
 
 
-class SongIndex extends React.Component {
+class ArtistIndex extends React.Component {
   constructor(props) {
     super(props);
 
   }
 
   componentDidMount() {
-    this.props.fetchSongs();
+    this.props.fetchArtists();
   }
 
   render () {
-    const { songs } = this.props;
+    const { artists } = this.props;
     return(
-      <div className="song-container">
+      <div className="artist-container">
         <div className="now-playing-bar">
           <NowPlayingContainer/>
         </div>
@@ -39,14 +39,12 @@ class SongIndex extends React.Component {
         </div>
 
 
-        <form className="song-form-index">
+        <form className="artist-form-index">
 
-          <ul className="song-list">
-            {songs.map((song) => (
-              <div id="each-song">
-                <li className="name">{song.title}</li>
-                <li className="duration">{song.duration}</li>
-                <li className="url">{song.song_url}</li>
+          <ul className="artist-list">
+            {artists.map((artist) => (
+              <div id="each-artist">
+                <li className="name">{artist.name}</li>
               </div>
               )
             )
@@ -58,4 +56,4 @@ class SongIndex extends React.Component {
   }
 }
 
-export default withRouter(SongIndex);
+export default withRouter(ArtistIndex);
