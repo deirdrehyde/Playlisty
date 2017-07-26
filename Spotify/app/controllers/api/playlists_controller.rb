@@ -16,7 +16,7 @@ class Api::PlaylistsController < ApplicationController
   def index
     if params[:name]
       name = params[:name]
-      @playlists = Playlist.where('lower(name) LIKE ?', name.downcase)
+      @playlists = Playlist.where('lower(name) LIKE ?', "%#{name.downcase}%")
     else
       @playlists = Playlist.all
     end

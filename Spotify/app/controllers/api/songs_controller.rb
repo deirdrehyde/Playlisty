@@ -8,7 +8,7 @@ class Api::SongsController < ApplicationController
       @songs = Song.where(playlist_id: params[:playlist_id])
     elsif params[:title]
       title = params[:title]
-      @songs = Song.where('lower(title) LIKE ?', title.downcase)
+      @songs = Song.where('lower(title) LIKE ?', "%#{title.downcase}%")
     else
       @songs = Song.all
     end
