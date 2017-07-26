@@ -4,6 +4,11 @@ class Api::ArtistsController < ApplicationController
   end
 
   def index
-    @artists = Artist.all
+    if params[:name]
+      name = params[:name]
+      @artists = Artist.where('lower(name) LIKE ?', name.downcase)
+    else
+      @artists = Artist.all
+    end
   end
 end

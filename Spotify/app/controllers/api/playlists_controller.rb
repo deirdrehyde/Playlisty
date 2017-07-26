@@ -14,7 +14,12 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def index
-    @playlists = Playlist.all
+    if params[:name]
+      name = params[:name]
+      @playlists = Playlist.where('lower(name) LIKE ?', name.downcase)
+    else
+      @playlists = Playlist.all
+    end
   end
 
   def show
