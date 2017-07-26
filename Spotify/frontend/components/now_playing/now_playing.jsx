@@ -27,10 +27,14 @@ class NowPlaying extends React.Component {
       loaded: 0
     })
   }
+
   playPause() {
-    this.setState({ playing: !this.state.playing });
+    this.setState({
+      playing: !this.state.playing
+    });
     console.log("playingggg");
   }
+
   stop() {
     this.setState({ url: null, playing: false })
   }
@@ -38,10 +42,12 @@ class NowPlaying extends React.Component {
 
   render() {
     const {
-      url, playing, volume,
+      playing, volume,
       played, loaded, duration,
       playbackRate
     } = this.state
+    const { url } = this.props
+    console.log(this.props);
     return(
       <div className="play-bar">
 
