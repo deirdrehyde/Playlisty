@@ -1,7 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import GreetingContainer from '../greeting/greeting_container';
+import NowPlayingContainer from '../now_playing/now_playing_container';
 
-class Search extends React.Component {
+class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,9 +29,21 @@ class Search extends React.Component {
     return(
       <form className="search-form">
 
-        <h1>Search</h1>
-        <div className="search-input">
-          <label><h4>Playlist Name</h4>
+        <div className="side-nav">
+          <nav className="side-nav-container">
+            <GreetingContainer/>
+          </nav>
+        </div>
+
+
+        <div className="now-playing-bar">
+          <NowPlayingContainer
+            />
+        </div>
+        <div className='search-content'>
+
+          <div className="search-input">
+            <label><h4>Search for an Artist, Song or Playlist</h4>
             <br/>
             <input
               className="input"
@@ -38,13 +52,11 @@ class Search extends React.Component {
               placeholder="Start typing..."
               onChange={ this.update('name') }
               />
-          </label>
-        </div >
-        <div className="buttons">
+            </label>
+          </div >
 
-          <button className="cancel" onClick={this.props.closePlaylistForm}>Cancel</button>
-          <button className="search" onClick={this.handleSubmit}>Search</button>
         </div>
+
 
       </form>
     )
