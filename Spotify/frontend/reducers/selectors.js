@@ -10,3 +10,8 @@ export const selectPlaylist = ({playlists}, id) => {
    const playlist = playlists[id] || {};
    return playlist
 };
+
+export const selectArtist = ({artists}, id) => {
+   const artist = artists[id] || {};
+   return artist
+};

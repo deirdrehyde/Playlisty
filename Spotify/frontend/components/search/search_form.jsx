@@ -92,7 +92,7 @@ class SearchForm extends React.Component {
               <ul className="artist-results">
                 <li>
                   {artists.map(artist =>
-                    <Link key={artist.id} to={`/artists`}>{artist.name}</Link>
+                    <Link key={artist.id} to={`/artists/${artist.id}`}>{artist.name}</Link>
                   )}
                 </li>
               </ul>

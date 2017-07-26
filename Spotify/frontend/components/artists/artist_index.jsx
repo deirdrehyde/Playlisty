@@ -42,13 +42,15 @@ class ArtistIndex extends React.Component {
         <form className="artist-form-index">
 
           <ul className="artist-list">
-            {artists.map((artist) => (
               <div id="each-artist">
-                <li className="name">{artist.name}</li>
+                <li>
+                  {artists.map((artist) => (
+                  <Link key={artist.id} to={`/artists/${artist.id}`} className="name">{artist.name}</Link>
+                      )
+                    )
+                  }
+                </li>
               </div>
-              )
-            )
-          }
         </ul>
       </form>
       </div>

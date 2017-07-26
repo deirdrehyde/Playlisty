@@ -35,7 +35,7 @@ class NowPlaying extends React.Component {
       nowPlayingSong: (this.props.nowPlayingSong ? this.props.nowPlayingSong : this.props.nowPlayingPlaylist[0]),
       url: (this.props.nowPlayingSong ? this.props.nowPlayingSong.song_url : this.props.nowPlayingPlaylist[0].song_url)
     });
-    this.props.setSong(this.props.nowPlayingSong);
+    this.props.setSong(this.props.nowPlayingSong ? this.props.nowPlayingSong : this.props.nowPlayingPlaylist[0]);
     console.log("playingggg");
   }
 
@@ -51,10 +51,13 @@ class NowPlaying extends React.Component {
       playbackRate
     } = this.state
     const { nowPlayingSong } = this.props
+    console.log(nowPlayingSong);
     console.log(this.props);
-    console.log(this.state);
     return(
       <div className="play-bar">
+        <div className="now-playing-details">
+          <h4>{( nowPlayingSong ? nowPlayingSong.title : "")}</h4>
+        </div>
 
         {this.state.playing ?
           (<PauseButton
