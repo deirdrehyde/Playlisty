@@ -18,8 +18,6 @@ class PlaylistShow extends React.Component {
     this.renderPlaylistEditForm = this.renderPlaylistEditForm.bind(this);
     this.closePlaylistEditForm = this.closePlaylistEditForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.playPlaylist = this.playPlaylist.bind(this);
-    this.playPauseSong = this.playPauseSong.bind(this);
   }
 
   componentDidMount() {
@@ -49,19 +47,6 @@ class PlaylistShow extends React.Component {
     });
   }
 
-  playPlaylist(e) {
-    this.setState({
-      isPlaying: true
-    });
-
-  }
-  playPauseSong(e) {
-    this.setState({
-      isPlaying: !this.state.isPlaying
-    });
-
-  }
-
 
   render() {
     const { playlist, songs } = this.props;
@@ -77,8 +62,6 @@ class PlaylistShow extends React.Component {
 
         <div className="now-playing-bar">
           <NowPlayingContainer
-              playing={this.state.isPlaying}
-              url={this.state.currentSongUrl}
             />
         </div>
 
@@ -88,16 +71,12 @@ class PlaylistShow extends React.Component {
             <div className="playlist-info">
               <ul className="info">
                 <li className="playlist" key={playlist.id}>
-                  {this.state.isPlaying ?
-                    (<PauseButton
-                      className="playlist-play"
-                      onClick={this.playPauseSong}
-                      isEnabled={true}/>) :
-                      (<PlayButton
-                        className="playlist-play"
-                        onClick={this.playPauseSong}
-                        isEnabled={true}/>)
-                  }
+                  <NowPlayingContainer
+                      url={
+                        songs.map((song) => (song.song_url))
+                      }
+                    />
+
                 </li>
                 <li className="playlists-name">
                   <h2>{playlist.name}</h2>
