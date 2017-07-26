@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import { PlaybackControls, PlayButton, PauseButton } from 'react-player-controls';
+import { NextButton, PrevButton, PlayButton, PauseButton } from 'react-player-controls';
 
 class NowPlaying extends React.Component {
   constructor(props) {
@@ -60,6 +60,8 @@ class NowPlaying extends React.Component {
               onClick={this.playPause}
               isEnabled={true}/>)
         }
+      
+
           <div className='player-wrapper'>
               <ReactPlayer
                 ref={player => { this.player = player }}

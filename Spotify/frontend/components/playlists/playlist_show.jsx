@@ -105,7 +105,11 @@ class PlaylistShow extends React.Component {
                         url={song.song_url}
                         />
                       <li className="name">{song.title}</li>
-                      <li className="duration">{song.duration}</li>
+                      <li className="duration">
+                        {Math.floor(song.duration/60)}:
+                          {(song.duration%60 < 10) ?
+                            Math.floor(song.duration%60)+"0" : Math.floor(song.duration%60)}
+                      </li>
                       <li className="url">{song.artist}</li>
                     </div>
                     )
