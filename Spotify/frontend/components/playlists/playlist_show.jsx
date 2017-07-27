@@ -16,6 +16,7 @@ class PlaylistShow extends React.Component {
     this.closePlaylistEditForm = this.closePlaylistEditForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.playPause = this.playPause.bind(this);
+    this.playPausePlaylist = this.playPausePlaylist.bind(this);
   }
 
   componentDidMount() {
@@ -50,6 +51,15 @@ class PlaylistShow extends React.Component {
     (this.props.playing ? this.props.pauseSong() : this.props.playSong(song));
   }
 
+  playPausePlaylist() {
+    // this.props.nowPlayingSong !== song ?
+    const { playlist, songs } = this.props;
+    console.log(playlist);
+    this.props.setPlaylist(playlist);
+    this.props.setSong(songs[0]);
+    this.props.playing ? this.props.pauseSong() : this.props.playPlaylist(songs);
+  }
+
 
   render() {
     const { playlist, songs, playing, nowPlayingSong, currentUser} = this.props;
@@ -65,10 +75,10 @@ class PlaylistShow extends React.Component {
                   {this.state.isPlaying ?
                     (<PauseButton
                       className="playlist-play"
-                      onClick={() => this.playPause(songs[0])}/>) :
+                      onClick={this.playPausePlaylist}/>) :
                       (<PlayButton
                         className="playlist-play"
-                        onClick={() => this.playPause(songs[0])}
+                        onClick={this.playPausePlaylist}
                         isEnabled={true}/>)
                   }
 

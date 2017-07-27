@@ -9,10 +9,12 @@ export const pausePlaylist = () =>({
   type: PAUSE
 });
 
-export const playPlaylist = () =>({
-  type: PLAY
+export const playPlaylist = (playlist) =>({
+  type: PLAY,
+  playlist
 });
 
-export const setPlaylist = () =>({
-  type: SET
+export const setPlaylist = (playlist) =>({
+  type: SET,
+  playlist
 });

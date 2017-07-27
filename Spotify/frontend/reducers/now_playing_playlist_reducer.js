@@ -10,7 +10,7 @@ const NowPlayingPlaylistReducer = (state = {}, action) => {
       return Object.assign({}, state, {playing: true});
 
     case SET:
-      return Object.assign({}, state, {playing: true});
+      return Object.assign({}, state, {playlist: action.playlist, playing: true});
 
     default:
       return state;

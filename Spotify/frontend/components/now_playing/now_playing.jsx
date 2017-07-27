@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import { NextButton, PrevButton, PlayButton, PauseButton } from 'react-player-controls';
+import { NextButton, PrevButton, PlayButton, PauseButton, ProgressBar} from 'react-player-controls';
 
 class NowPlaying extends React.Component {
   constructor(props) {
@@ -17,6 +17,7 @@ class NowPlaying extends React.Component {
     this.playPause = this.playPause.bind(this);
     this.load = this.load.bind(this);
     this.stop = this.stop.bind(this);
+    this.checkForNextSong = this.checkForNextSong.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -46,8 +47,17 @@ class NowPlaying extends React.Component {
     })
   }
 
+  checkForNextSong() {
+    if (this.props.nowPlayingPlaylist) {
+
+    } else {
+      this.stop
+    }
+  }
+
   stop() {
-    this.setState({ url: null, playing: false })
+    this.props.stopSong(this.props.nowPlayingSong);
+    this.setState({ url: null, playing: false });
   }
 
 
@@ -62,13 +72,14 @@ class NowPlaying extends React.Component {
     console.log(this.state);
     console.log(this.props);
     if (!currentUser) {return null}
+
     return(
       <div className="now-playing-bar">
         <div className="play-bar">
           <div className="now-playing-details">
             <h4>{( nowPlayingSong ? nowPlayingSong.title : "")}</h4>
           </div>
-
+          <PrevButton isEnabled={false}/>
           {playing ?
             (<PauseButton
               onClick={this.playPause}/>) :
@@ -76,6 +87,7 @@ class NowPlaying extends React.Component {
                 onClick={this.playPause}
                 isEnabled={true}/>)
           }
+          <NextButton isEnabled={false}/>
 
 
 
@@ -92,7 +104,7 @@ class NowPlaying extends React.Component {
                 onStart={() => console.log('onStart')}
                 onPlay={() => this.setState({ playing: true })}
                 onPause={() => this.setState({ playing: false })}
-                onEnded={() => this.setState({ playing: false })}
+                onEnded={this.checkForNextSong}
                 onError={e => console.log('onError', e)}
                 onDuration={duration => this.setState({ duration })}
               />
