@@ -38,7 +38,7 @@ class PlaylistIndex extends React.Component {
     const { playlists } = this.props;
     return(
       <div className="playlist-container">
-        
+
         <div className="top-container">
           <nav className="top-nav">
             <nav className = "nav-items">

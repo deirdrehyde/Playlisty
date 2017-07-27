@@ -157,7 +157,7 @@ class PlaylistShow extends React.Component {
                             isEnabled={true}/>)
                       }
 
-                      <li className="name">{song.title}</li>
+                      <li className="names">{song.title}</li>
                       <li className="duration">
                         {Math.floor(song.duration/60)}:
                           {(song.duration%60 < 10) ?
