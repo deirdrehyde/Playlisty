@@ -18,6 +18,7 @@ class PlaylistShow extends React.Component {
     this.renderPlaylistEditForm = this.renderPlaylistEditForm.bind(this);
     this.closePlaylistEditForm = this.closePlaylistEditForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.playPause = this.playPause.bind(this);
   }
 
   componentDidMount() {
@@ -47,11 +48,19 @@ class PlaylistShow extends React.Component {
     });
   }
 
+  playPause(song) {
+    this.setState({
+      isPlaying: !this.state.isPlaying
+    })
+    this.props.setSong(song);
+    this.state.isPlaying ? this.props.pauseSong() : this.props.playSong(song);
+  }
+
 
   render() {
     const { playlist, songs } = this.props;
     return (
-      <form className="playlist-show">
+      <div className="playlist-show">
 
         <div className="side-nav">
           <nav className="side-nav-container">
@@ -71,12 +80,16 @@ class PlaylistShow extends React.Component {
             <div className="playlist-info">
               <ul className="info">
                 <li className="playlist" key={playlist.id}>
-                  <NowPlayingContainer
-                      url={
-                        songs.map((song) => (song.song_url))
-                      }
-                      nowPlayingPlaylist={ playlist }
-                    />
+                  {this.state.isPlaying ?
+                    (<PauseButton
+                      className="playlist-play"
+                      onClick={() => this.playPause(songs[0])}
+                      isEnabled={true}/>) :
+                      (<PlayButton
+                        className="playlist-play"
+                        onClick={() => this.playPause(songs[0])}
+                        isEnabled={true}/>)
+                  }
 
                 </li>
                 <li className="playlists-name">
@@ -102,9 +115,16 @@ class PlaylistShow extends React.Component {
                 <ul className="song-list">
                   {songs.map((song) => (
                     <div id="each-song" key={song.id}>
-                      <NowPlayingContainer
-                        nowPlayingSong={song}
-                        />
+
+                      {this.state.isPlaying ?
+                        (<PauseButton
+                          onClick={() => this.playPause(song)}
+                          isEnabled={true}/>) :
+                          (<PlayButton
+                            onClick={() => this.playPause(song)}
+                            isEnabled={true}/>)
+                      }
+
                       <li className="name">{song.title}</li>
                       <li className="duration">
                         {Math.floor(song.duration/60)}:
@@ -121,7 +141,7 @@ class PlaylistShow extends React.Component {
             </div>
 
           </div>
-      </form>
+      </div>
     )
   }
 }

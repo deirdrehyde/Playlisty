@@ -74,7 +74,7 @@ class PlaylistIndex extends React.Component {
                     <div id="each-playlist">
 
                       <li className="playlist" key={playlist.id}>
-                        <Link to={`/playlists/${playlist.id}`}
+                        <Link key={playlist.id} to={`/playlists/${playlist.id}`}
                           className="playlist-name"
                           ></Link>
                       </li>

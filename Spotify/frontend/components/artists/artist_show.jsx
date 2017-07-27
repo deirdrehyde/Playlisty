@@ -13,7 +13,8 @@ class ArtistShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchArtist(this.props.artistId);
+    this.props.fetchArtist(this.props.artistId)
+      .then(this.props.fetchArtistSongs(this.props.playlistId));
   }
 
   render() {

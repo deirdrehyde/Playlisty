@@ -3,13 +3,13 @@ import { setSong, playSong, pauseSong } from '../../actions/now_playing_song_act
 import { setPlaylist, playPlaylist } from '../../actions/now_playing_playlist_actions';
 import NowPlaying from './now_playing';
 
-const mapStateToProps = (state) => ({
-  playingSong: state.nowPlayingSong.song
+const mapStateToProps = (state, ownProps) => ({
+  nowPlayingSong: ownProps.nowPlayingSong || state.nowPlayingSong.song,
+  nowPlayingPlaylist: ownProps.nowPlayingPlaylist,
+  playing: state.nowPlayingSong.playing
 });
 
-const mapDispatchToProps = (dispatch, nextProps) => ({
-  nowPlayingPlaylist: nextProps.nowPlayingPlaylist,
-  nowPlayingSong: nextProps.nowPlayingSong,
+const mapDispatchToProps = (dispatch) => ({
   playSong: song => dispatch(playSong(song)),
   setSong: song => dispatch(setSong(song)),
   pauseSong: () => dispatch(pauseSong())

@@ -8,16 +8,34 @@ class NowPlaying extends React.Component {
     super(props);
     this.state = {
       url: null,
-      playing: false,
       volume: 0.8,
       played: 0,
       loaded: 0,
       duration: 0,
       playbackRate: 1.0
     }
-    this.load = this.load.bind(this);
     this.playPause = this.playPause.bind(this);
+    this.load = this.load.bind(this);
     this.stop = this.stop.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.nowPlayingSong !== this.props.nowPlayingSong) {
+      this.setState({
+        url: nextProps.nowPlayingSong.song_url
+      })
+    }
+  }
+
+  playPause() {
+    this.setState({
+      nowPlayingPlaylist: this.props.nowPlayingPlaylist,
+      nowPlayingSong: (this.props.nowPlayingSong),
+      url: (this.props.nowPlayingSong.song_url )
+      // nowPlayingSong: (this.props.nowPlayingSong ? this.props.nowPlayingSong : this.props.nowPlayingPlaylist[0]),
+      // url: (this.props.nowPlayingSong ? this.props.nowPlayingSong.song_url : this.props.nowPlayingPlaylist[0].song_url)
+    });
+    this.props.playing ? this.props.pauseSong() : this.props.playSong(this.props.nowPlayingSong)
   }
 
   load (url) {
@@ -28,17 +46,6 @@ class NowPlaying extends React.Component {
     })
   }
 
-  playPause() {
-    this.setState({
-      playing: !this.state.playing,
-      nowPlayingPlaylist: this.props.nowPlayingPlaylist,
-      nowPlayingSong: (this.props.nowPlayingSong ? this.props.nowPlayingSong : this.props.nowPlayingPlaylist[0]),
-      url: (this.props.nowPlayingSong ? this.props.nowPlayingSong.song_url : this.props.nowPlayingPlaylist[0].song_url)
-    });
-    this.props.setSong(this.props.nowPlayingSong ? this.props.nowPlayingSong : this.props.nowPlayingPlaylist[0]);
-    console.log("playingggg");
-  }
-
   stop() {
     this.setState({ url: null, playing: false })
   }
@@ -46,20 +53,21 @@ class NowPlaying extends React.Component {
 
   render() {
     const {
-      url, playing, volume,
+      url, volume,
       played, loaded, duration,
       playbackRate
     } = this.state
-    const { nowPlayingSong } = this.props
-    console.log(nowPlayingSong);
+    const { nowPlayingSong, playing } = this.props
+    console.log(this.state);
     console.log(this.props);
+
     return(
       <div className="play-bar">
         <div className="now-playing-details">
           <h4>{( nowPlayingSong ? nowPlayingSong.title : "")}</h4>
         </div>
 
-        {this.state.playing ?
+        {playing ?
           (<PauseButton
             onClick={this.playPause}
             isEnabled={true}/>) :
@@ -67,6 +75,7 @@ class NowPlaying extends React.Component {
               onClick={this.playPause}
               isEnabled={true}/>)
         }
+
 
 
           <div className='player-wrapper'>
