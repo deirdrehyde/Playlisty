@@ -7,6 +7,7 @@ import { selectPlaylist, allSongs } from '../../reducers/selectors';
 import PlaylistShow from './playlist_show';
 
 const mapStateToProps = (state, {match}) => ({
+  currentUser: state.session.currentUser,
   playlistId: parseInt(match.params.id),
   playlist: selectPlaylist(state, match.params.id),
   nowPlayingSong: state.nowPlayingSong.song,

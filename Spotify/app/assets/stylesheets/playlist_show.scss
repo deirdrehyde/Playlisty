@@ -59,3 +59,8 @@ ul.info {
 .edit, .delete {
   margin: 10px;
 }
+
+.change-buttons {
+  display: flex;
+  flex-direction: column;
+}

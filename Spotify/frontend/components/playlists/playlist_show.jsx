@@ -52,7 +52,7 @@ class PlaylistShow extends React.Component {
 
 
   render() {
-    const { playlist, songs, playing, nowPlayingSong } = this.props;
+    const { playlist, songs, playing, nowPlayingSong, currentUser} = this.props;
     console.log(this.props);
     return (
       <div className="playlist-show">
@@ -78,7 +78,13 @@ class PlaylistShow extends React.Component {
                 </li>
                 <li className="creators-name">By {playlist.creator}</li>
               </ul>
-              <button className="edit" onClick={this.renderPlaylistEditForm}>Edit Playlist</button>
+              {(currentUser.username === playlist.creator) ?
+                <div className="change-buttons">
+
+                  <button className="edit" onClick={this.renderPlaylistEditForm}>Edit Playlist</button>
+                  <button className="delete" onClick={this.handleSubmit}>Delete Playlist</button>
+                </div>
+              : null}
               {this.state.showComponent ?
                 (<PlaylistEditForm
                   playlist={playlist}
@@ -87,7 +93,6 @@ class PlaylistShow extends React.Component {
                   />) :
                   null
                 }
-              <button className="delete" onClick={this.handleSubmit}>Delete Playlist</button>
             </div>
 
             <div className='playlist-song-list'>
