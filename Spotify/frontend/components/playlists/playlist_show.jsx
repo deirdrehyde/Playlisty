@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import GreetingContainer from '../greeting/greeting_container';
-import NowPlayingContainer from '../now_playing/now_playing_container';
 import PlaylistEditForm from './playlist_edit_form';
 import { PlayButton, PauseButton } from 'react-player-controls';
 
@@ -58,19 +56,6 @@ class PlaylistShow extends React.Component {
     console.log(this.props);
     return (
       <div className="playlist-show">
-
-        <div className="side-nav">
-          <nav className="side-nav-container">
-            <GreetingContainer/>
-          </nav>
-        </div>
-
-
-        <div className="now-playing-bar">
-          <NowPlayingContainer
-            />
-        </div>
-
 
         <div className="playlist-details">
 

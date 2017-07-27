@@ -4,6 +4,7 @@ import { setPlaylist, playPlaylist } from '../../actions/now_playing_playlist_ac
 import NowPlaying from './now_playing';
 
 const mapStateToProps = (state, ownProps) => ({
+  currentUser: state.session.currentUser,
   nowPlayingSong: ownProps.nowPlayingSong || state.nowPlayingSong.song,
   nowPlayingPlaylist: ownProps.nowPlayingPlaylist,
   playing: state.nowPlayingSong.playing

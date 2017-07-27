@@ -15,7 +15,7 @@ const App = () => (
   <div>
 
         <GreetingContainer/>
-    
+
 
     <Switch>
       <ProtectedRoute exact path='/search' component={SearchFormContainer} />
@@ -28,9 +28,9 @@ const App = () => (
       <AuthRoute path='/login' component={SessionFormContainer} />
       <AuthRoute path='/signup' component={SessionFormContainer} />
     </Switch>
-    <div className="now-playing-bar">
+
       <NowPlayingContainer/>
-    </div>
+
 
   </div>
 );

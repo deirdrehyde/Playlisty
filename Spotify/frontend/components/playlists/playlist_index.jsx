@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PlaylistForm from './playlist_form';
-import GreetingContainer from '../greeting/greeting_container';
-import NowPlayingContainer from '../now_playing/now_playing_container';
 import { PlayButton } from 'react-player-controls';
 
 class PlaylistIndex extends React.Component {
@@ -40,9 +38,7 @@ class PlaylistIndex extends React.Component {
     const { playlists } = this.props;
     return(
       <div className="playlist-container">
-        <div className="now-playing-bar">
-          <NowPlayingContainer/>
-        </div>
+        
         <div className="top-container">
           <nav className="top-nav">
             <nav className = "nav-items">
@@ -61,11 +57,7 @@ class PlaylistIndex extends React.Component {
                 }
             </nav>
             </nav>
-            <div className="side-nav">
-              <nav className="side-nav-container">
-                <GreetingContainer/>
-              </nav>
-            </div>
+
             <div id="content">
 
               <form className="content-form">

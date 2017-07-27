@@ -52,28 +52,30 @@ class NowPlaying extends React.Component {
 
 
   render() {
+
     const {
       url, volume,
       played, loaded, duration,
       playbackRate
     } = this.state
-    const { nowPlayingSong, playing } = this.props
+    const { nowPlayingSong, playing, currentUser } = this.props
     console.log(this.state);
     console.log(this.props);
-
+    if (!currentUser) {return null}
     return(
-      <div className="play-bar">
-        <div className="now-playing-details">
-          <h4>{( nowPlayingSong ? nowPlayingSong.title : "")}</h4>
-        </div>
+      <div className="now-playing-bar">
+        <div className="play-bar">
+          <div className="now-playing-details">
+            <h4>{( nowPlayingSong ? nowPlayingSong.title : "")}</h4>
+          </div>
 
-        {playing ?
-          (<PauseButton
-            onClick={this.playPause}/>) :
-            (<PlayButton
-              onClick={this.playPause}
-              isEnabled={true}/>)
-        }
+          {playing ?
+            (<PauseButton
+              onClick={this.playPause}/>) :
+              (<PlayButton
+                onClick={this.playPause}
+                isEnabled={true}/>)
+          }
 
 
 
@@ -96,6 +98,7 @@ class NowPlaying extends React.Component {
               />
             </div>
       </div>
+    </div>
     )
   }
 }

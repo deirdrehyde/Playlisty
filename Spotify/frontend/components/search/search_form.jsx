@@ -1,7 +1,5 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import GreetingContainer from '../greeting/greeting_container';
-import NowPlayingContainer from '../now_playing/now_playing_container';
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -42,18 +40,6 @@ class SearchForm extends React.Component {
     const { playlists, songs, artists } = this.props;
     return(
       <form className="search-form">
-
-        <div className="side-nav">
-          <nav className="side-nav-container">
-            <GreetingContainer/>
-          </nav>
-        </div>
-
-
-        <div className="now-playing-bar">
-          <NowPlayingContainer
-            />
-        </div>
 
 
         <div className='search-content'>

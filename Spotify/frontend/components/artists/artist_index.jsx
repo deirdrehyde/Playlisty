@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import GreetingContainer from '../greeting/greeting_container';
-import NowPlayingContainer from '../now_playing/now_playing_container';
 
 
 class ArtistIndex extends React.Component {
@@ -18,9 +16,7 @@ class ArtistIndex extends React.Component {
     const { artists } = this.props;
     return(
       <div className="artist-container">
-        <div className="now-playing-bar">
-          <NowPlayingContainer/>
-        </div>
+
         <div className="top-container">
           <nav className="top-nav">
             <nav className = "nav-items">
@@ -32,11 +28,7 @@ class ArtistIndex extends React.Component {
             </nav>
           </nav>
         </div>
-        <div className="side-nav">
-          <nav className="side-nav-container">
-            <GreetingContainer/>
-          </nav>
-        </div>
+
 
 
         <form className="artist-form-index">

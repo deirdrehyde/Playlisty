@@ -1,8 +1,5 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import GreetingContainer from '../greeting/greeting_container';
-import NowPlayingContainer from '../now_playing/now_playing_container';
-
 
 class SongIndex extends React.Component {
   constructor(props) {
@@ -26,9 +23,6 @@ class SongIndex extends React.Component {
 
     return(
       <div className="song-container">
-        <div className="now-playing-bar">
-          <NowPlayingContainer/>
-        </div>
         <div className="top-container">
           <nav className="top-nav">
             <nav className = "nav-items">
@@ -38,11 +32,6 @@ class SongIndex extends React.Component {
                 <li className="nav"><Link to="/artists">Artists</Link></li>
               </ul>
             </nav>
-          </nav>
-        </div>
-        <div className="side-nav">
-          <nav className="side-nav-container">
-            <GreetingContainer/>
           </nav>
         </div>
 
