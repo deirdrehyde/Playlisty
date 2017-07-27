@@ -69,8 +69,7 @@ class NowPlaying extends React.Component {
 
         {playing ?
           (<PauseButton
-            onClick={this.playPause}
-            isEnabled={true}/>) :
+            onClick={this.playPause}/>) :
             (<PlayButton
               onClick={this.playPause}
               isEnabled={true}/>)

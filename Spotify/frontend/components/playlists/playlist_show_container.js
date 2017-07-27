@@ -10,6 +10,7 @@ const mapStateToProps = (state, {match}) => ({
   playlistId: parseInt(match.params.id),
   playlist: selectPlaylist(state, match.params.id),
   nowPlayingSong: state.nowPlayingSong.song,
+  playing: state.nowPlayingSong.playing,
   songs: allSongs(state),
   errors: state.errors
 })

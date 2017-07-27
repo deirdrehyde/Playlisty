@@ -12,8 +12,7 @@ class PlaylistShow extends React.Component {
     this.state = {
       name: "",
       creator_id: null,
-      showComponent: false,
-      isPlaying: false
+      showComponent: false
     };
     this.renderPlaylistEditForm = this.renderPlaylistEditForm.bind(this);
     this.closePlaylistEditForm = this.closePlaylistEditForm.bind(this);
@@ -49,16 +48,17 @@ class PlaylistShow extends React.Component {
   }
 
   playPause(song) {
-    this.setState({
-      isPlaying: !this.state.isPlaying
-    })
+    // this.setState({
+    //   isPlaying: !this.state.isPlaying
+    // })
     this.props.setSong(song);
-    this.state.isPlaying ? this.props.pauseSong() : this.props.playSong(song);
+    this.props.playing ? this.props.pauseSong() : this.props.playSong(song);
   }
 
 
   render() {
-    const { playlist, songs } = this.props;
+    const { playlist, songs, playing, nowPlayingSong } = this.props;
+    console.log(this.props);
     return (
       <div className="playlist-show">
 
@@ -83,8 +83,7 @@ class PlaylistShow extends React.Component {
                   {this.state.isPlaying ?
                     (<PauseButton
                       className="playlist-play"
-                      onClick={() => this.playPause(songs[0])}
-                      isEnabled={true}/>) :
+                      onClick={() => this.playPause(songs[0])}/>) :
                       (<PlayButton
                         className="playlist-play"
                         onClick={() => this.playPause(songs[0])}
@@ -116,10 +115,9 @@ class PlaylistShow extends React.Component {
                   {songs.map((song) => (
                     <div id="each-song" key={song.id}>
 
-                      {this.state.isPlaying ?
+                      {(playing && song === nowPlayingSong) ?
                         (<PauseButton
-                          onClick={() => this.playPause(song)}
-                          isEnabled={true}/>) :
+                          onClick={() => this.playPause(song)} />) :
                           (<PlayButton
                             onClick={() => this.playPause(song)}
                             isEnabled={true}/>)
