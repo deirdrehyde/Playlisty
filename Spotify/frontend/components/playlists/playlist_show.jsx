@@ -118,7 +118,7 @@ class PlaylistShow extends React.Component {
                   <h2>{playlist.name}</h2>
                 </li>
                 <li className="creators-name">By {playlist.creator}</li>
-                <li><button
+                <li className="follows"><button
                       className={this.state.following ? "follow" : "unfollow"}
                       onClick={this.toggleFollow}>
                       {this.state.following ? "Unfollow" : "Follow"}
