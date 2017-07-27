@@ -10,7 +10,9 @@ const greetingMessage = (currentUser, logout) => (
     <nav className="side-nav-container">
       <div className="greeting">
         <div className="top-side-nav">
-          <img className="logo-small" src="http://res.cloudinary.com/douzdapki/image/upload/v1500486429/Refresh_xdfvbr.png" />
+          <Link to='/playlists' className="logo-small">
+            <img className="logo-small" src="http://res.cloudinary.com/douzdapki/image/upload/v1500486429/Refresh_xdfvbr.png" />
+          </Link>
           <Link to='/search' className='search-nav'>Search</Link>
           <Link to='/playlists' className='playlist-nav'>Your Music</Link>
         </div>
