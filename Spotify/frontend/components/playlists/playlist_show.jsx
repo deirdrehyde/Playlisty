@@ -62,7 +62,7 @@ class PlaylistShow extends React.Component {
 
 
   render() {
-    const { playlist, songs, playing, nowPlayingSong, currentUser} = this.props;
+    const { playlist, songs, playing, nowPlayingSong, currentUser, nowPlayingPlaylist} = this.props;
     console.log(this.props);
     return (
       <div className="playlist-show">
@@ -72,7 +72,7 @@ class PlaylistShow extends React.Component {
             <div className="playlist-info">
               <ul className="info">
                 <li className="playlist" key={playlist.id}>
-                  {this.state.isPlaying ?
+                  {playing && playlist === nowPlayingPlaylist ?
                     (<PauseButton
                       className="playlist-play"
                       onClick={this.playPausePlaylist}/>) :

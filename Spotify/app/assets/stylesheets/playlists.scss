@@ -59,6 +59,20 @@
   flex-direction: row;
 }
 
+.playlist-add {
+  background-color: grey;
+  list-style: none;
+  height: 100px;
+  width: 100px;
+  margin: 2%;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  border: 5px solid black;
+  cursor: pointer;
+  justify-content: center;
+}
+
 .playlist {
   background-color: black;
   list-style: none;
