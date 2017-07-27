@@ -51,7 +51,7 @@ class NowPlaying extends React.Component {
     if (this.props.nowPlayingPlaylist) {
 
     } else {
-      this.stop
+      this.stop();
     }
   }
 
