@@ -22,6 +22,7 @@ class ArtistShow extends React.Component {
       <div className="artist-show">
         <div className="artist-show-container">
           <h2>{artist.name}</h2>
+          <h4>{artist.description}</h4>
         </div>
 
       </div>
