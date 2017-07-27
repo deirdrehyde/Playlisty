@@ -73,6 +73,17 @@
   justify-content: center;
 }
 
+button.playlist-add-name {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+}
+
+button.playlist-add-name:hover {
+  transform: scale(1.035);
+  background: transparent;
+}
+
 .playlist {
   background-color: black;
   list-style: none;
@@ -173,7 +184,7 @@ button.create-playlist {
   flex-direction: row;
 }
 
-button.cancel {
+button.cancel, button.follow {
   background-color: transparent;
   border: thin solid white;
 }

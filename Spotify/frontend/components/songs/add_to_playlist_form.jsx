@@ -10,6 +10,7 @@ class AddToPlaylistForm extends React.Component {
       showComponent: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.addToPlaylist = this.addToPlaylist.bind(this);
     this.renderPlaylistForm = this.renderPlaylistForm.bind(this);
     this.closePlaylistForm = this.closePlaylistForm.bind(this);
   }
@@ -36,6 +37,10 @@ class AddToPlaylistForm extends React.Component {
     });
   }
 
+  addToPlaylist() {
+
+  }
+
   render() {
     const { playlists } = this.props;
     return (
@@ -47,9 +52,7 @@ class AddToPlaylistForm extends React.Component {
               <div id="each-playlist">
 
                 <li className="playlist-add" key={playlist.id}>
-                  <Link key={playlist.id} to={`/playlists/${playlist.id}`}
-                    className="playlist-name"
-                    ></Link>
+                  <button onClick={this.addToPlaylist} className="playlist-add-name"></button>
                 </li>
                 <li className="name">{playlist.name}</li>
               </div>

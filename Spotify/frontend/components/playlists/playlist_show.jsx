@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { merge } from 'lodash';
 import PlaylistEditForm from './playlist_edit_form';
 import { PlayButton, PauseButton } from 'react-player-controls';
 
@@ -10,13 +11,15 @@ class PlaylistShow extends React.Component {
     this.state = {
       name: "",
       creator_id: null,
-      showComponent: false
+      showComponent: false,
+      following: false
     };
     this.renderPlaylistEditForm = this.renderPlaylistEditForm.bind(this);
     this.closePlaylistEditForm = this.closePlaylistEditForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.playPause = this.playPause.bind(this);
     this.playPausePlaylist = this.playPausePlaylist.bind(this);
+    this.toggleFollow = this.toggleFollow.bind(this);
   }
 
   componentDidMount() {
@@ -60,6 +63,14 @@ class PlaylistShow extends React.Component {
     this.props.playing ? this.props.pauseSong() : this.props.playPlaylist(songs);
   }
 
+  toggleFollow(e) {
+    e.preventDefault();
+    const toggledFollow = merge({}, this.props.playlist, {
+       following: !this.state.following
+     });
+     this.props.updatePlaylist(toggledFollow);
+  }
+
 
   render() {
     const { playlist, songs, playing, nowPlayingSong, currentUser, nowPlayingPlaylist} = this.props;
@@ -87,6 +98,12 @@ class PlaylistShow extends React.Component {
                   <h2>{playlist.name}</h2>
                 </li>
                 <li className="creators-name">By {playlist.creator}</li>
+                <li><button
+                      className={this.state.following ? "follow" : "unfollow"}
+                      onClick={this.toggleFollow}>
+                      {this.state.following ? "Unfollow" : "Follow"}
+                    </button>
+                </li>
               </ul>
               {(currentUser.username === playlist.creator) ?
                 <div className="change-buttons">
