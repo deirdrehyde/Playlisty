@@ -48,9 +48,6 @@ class PlaylistShow extends React.Component {
   }
 
   playPause(song) {
-    // this.setState({
-    //   isPlaying: !this.state.isPlaying
-    // })
     this.props.setSong(song);
     this.props.playing ? this.props.pauseSong() : this.props.playSong(song);
   }

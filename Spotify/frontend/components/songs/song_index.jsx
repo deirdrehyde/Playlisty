@@ -7,6 +7,7 @@ import NowPlayingContainer from '../now_playing/now_playing_container';
 class SongIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.playPause = this.playPause.bind(this);
 
   }
 
@@ -14,8 +15,15 @@ class SongIndex extends React.Component {
     this.props.fetchSongs();
   }
 
+  playPause(song) {
+    this.props.setSong(song);
+    this.props.playing ? this.props.pauseSong() : this.props.playSong(song);
+  }
+
+
   render () {
-    const { songs } = this.props;
+    const { songs, playing, NowPlayingSong } = this.props;
+
     return(
       <div className="song-container">
         <div className="now-playing-bar">
@@ -44,6 +52,13 @@ class SongIndex extends React.Component {
           <ul className="song-list">
             {songs.map((song) => (
               <div id="each-song">
+                {(playing && song === nowPlayingSong) ?
+                  (<PauseButton
+                    onClick={() => this.playPause(song)} />) :
+                    (<PlayButton
+                      onClick={() => this.playPause(song)}
+                      isEnabled={true}/>)
+                }
                 <li className="name">{song.title}</li>
                 <li className="url">{song.artist}</li>
                   <li className="duration">
