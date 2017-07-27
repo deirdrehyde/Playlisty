@@ -1,6 +1,7 @@
 import SongIndex from './song_index';
 import { connect } from 'react-redux';
-import { fetchSongs, fetchSong, playSong, pauseSong, setSong } from '../../actions/song_actions';
+import { playSong, pauseSong, setSong } from '../../actions/now_playing_song_actions';
+import { fetchSongs, fetchSong } from '../../actions/song_actions';
 import { allSongs } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => ({

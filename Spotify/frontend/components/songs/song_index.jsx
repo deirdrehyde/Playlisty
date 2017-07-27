@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { PlayButton, PauseButton } from 'react-player-controls';
+
 
 class SongIndex extends React.Component {
   constructor(props) {
@@ -19,7 +21,7 @@ class SongIndex extends React.Component {
 
 
   render () {
-    const { songs, playing, NowPlayingSong } = this.props;
+    const { songs, playing, nowPlayingSong } = this.props;
 
     return(
       <div className="song-container">
