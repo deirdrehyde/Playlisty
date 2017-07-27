@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
-import { fetchPlaylist, destroyPlaylist, updatePlaylist } from '../../actions/playlist_actions';
+import { fetchPlaylist, fetchPlaylists, destroyPlaylist, updatePlaylist } from '../../actions/playlist_actions';
 import { fetchPlaylistSongs } from '../../actions/song_actions';
 import { playSong, pauseSong, setSong } from '../../actions/now_playing_song_actions';
 import { playPlaylist, pausePlaylist, setPlaylist } from '../../actions/now_playing_playlist_actions';
-import { selectPlaylist, allSongs } from '../../reducers/selectors';
+import { selectPlaylist, allSongs, allPlaylists } from '../../reducers/selectors';
 import PlaylistShow from './playlist_show';
 
 const mapStateToProps = (state, {match}) => ({
@@ -15,11 +15,13 @@ const mapStateToProps = (state, {match}) => ({
   nowPlayingPlaylist: state.nowPlayingPlaylist.playlist,
   playing: state.nowPlayingSong.playing,
   songs: allSongs(state),
+  playlists: allPlaylists(state),
   errors: state.errors
 })
 
 const mapDispatchToProps = (dispatch) => ({
   fetchPlaylist: id => dispatch(fetchPlaylist(id)),
+  fetchPlaylists: () => dispatch(fetchPlaylists()),
   fetchPlaylistSongs: id => dispatch(fetchPlaylistSongs(id)),
   updatePlaylist: playlist => dispatch(updatePlaylist(playlist)),
   destroyPlaylist: playlist => dispatch(destroyPlaylist(playlist)),

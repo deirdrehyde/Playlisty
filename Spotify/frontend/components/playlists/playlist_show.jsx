@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { merge } from 'lodash';
 import PlaylistEditForm from './playlist_edit_form';
+import AddToPlaylistForm from '../songs/add_to_playlist_form';
 import { PlayButton, PauseButton } from 'react-player-controls';
 
 
@@ -12,10 +13,13 @@ class PlaylistShow extends React.Component {
       name: "",
       creator_id: null,
       showComponent: false,
+      addShowComponent: false,
       following: false
     };
     this.renderPlaylistEditForm = this.renderPlaylistEditForm.bind(this);
     this.closePlaylistEditForm = this.closePlaylistEditForm.bind(this);
+    this.renderAddToPlaylistForm = this.renderAddToPlaylistForm.bind(this);
+    this.closeAddToPlaylistForm = this.closeAddToPlaylistForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.playPause = this.playPause.bind(this);
     this.playPausePlaylist = this.playPausePlaylist.bind(this);
@@ -48,6 +52,22 @@ class PlaylistShow extends React.Component {
       showComponent: false
     });
   }
+
+  renderAddToPlaylistForm(e) {
+    e.preventDefault();
+    this.setState({
+      addShowComponent: true,
+    });
+    this.props.fetchPlaylists();
+  }
+
+  closeAddToPlaylistForm(e) {
+    if (e) { e.preventDefault(); }
+    this.setState({
+      addShowComponent: false,
+    });
+  }
+
 
   playPause(song) {
     this.props.nowPlayingSong !== song ? this.props.setSong(song) :
@@ -144,6 +164,15 @@ class PlaylistShow extends React.Component {
                             Math.floor(song.duration%60)+"0" : Math.floor(song.duration%60)}
                       </li>
                       <li className="url">{song.artist}</li>
+                        <li className="add"><button onClick={this.renderAddToPlaylistForm}>Add to Playlist</button></li>
+                          {this.state.addShowComponent ?
+                            (<AddToPlaylistForm
+                              closeAddToPlaylistForm={this.closeAddToPlaylistForm}
+                              playlists={this.props.playlists}
+                              createPlaylist={this.props.createPlaylist}
+                              />) :
+                              null
+                            }
                     </div>
                     )
                     )
