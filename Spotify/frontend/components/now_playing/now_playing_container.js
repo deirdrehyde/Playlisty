@@ -6,7 +6,7 @@ import NowPlaying from './now_playing';
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
   nowPlayingSong: ownProps.nowPlayingSong || state.nowPlayingSong.song,
-  nowPlayingPlaylist: ownProps.nowPlayingPlaylist,
+  nowPlayingPlaylist: ownProps.nowPlayingPlaylist || state.nowPlayingPlaylist.playlist,
   playing: state.nowPlayingSong.playing
 });
 

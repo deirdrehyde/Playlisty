@@ -76,39 +76,50 @@ class NowPlaying extends React.Component {
     return(
       <div className="now-playing-bar">
         <div className="play-bar">
-          <div className="now-playing-details">
-            <h4>{( nowPlayingSong ? nowPlayingSong.title : "")}</h4>
-          </div>
-          <PrevButton isEnabled={false}/>
-          {playing ?
-            (<PauseButton
-              onClick={this.playPause}/>) :
-              (<PlayButton
-                onClick={this.playPause}
-                isEnabled={true}/>)
-          }
-          <NextButton isEnabled={false}/>
+          <div className="playing-components">
 
-
-
-          <div className='player-wrapper'>
-              <ReactPlayer
-                ref={player => { this.player = player }}
-                className='react-player'
-                width='0'
-                height='0'
-                url={url}
-                playing={playing}
-                volume={volume}
-                onReady={() => console.log('onReady')}
-                onStart={() => console.log('onStart')}
-                onPlay={() => this.setState({ playing: true })}
-                onPause={() => this.setState({ playing: false })}
-                onEnded={this.checkForNextSong}
-                onError={e => console.log('onError', e)}
-                onDuration={duration => this.setState({ duration })}
-              />
+            <div className="now-playing-details">
+              { nowPlayingSong ?
+                <Link key={nowPlayingSong.id} to={`/songs/`}
+                  className="now-playing-name"
+                  ></Link> : null
+              }
+              <h4>{( nowPlayingSong ? nowPlayingSong.title : "")}</h4>
             </div>
+            <div className="controls">
+
+              <PrevButton isEnabled={false}/>
+              {playing ?
+                (<PauseButton
+                  onClick={this.playPause}/>) :
+                  (<PlayButton
+                    onClick={this.playPause}
+                    isEnabled={true}/>)
+                  }
+                  <NextButton isEnabled={false}/>
+                </div>
+
+
+
+                <div className='player-wrapper'>
+                  <ReactPlayer
+                    ref={player => { this.player = player }}
+                    className='react-player'
+                    width='0'
+                    height='0'
+                    url={url}
+                    playing={playing}
+                    volume={volume}
+                    onReady={() => console.log('onReady')}
+                    onStart={() => console.log('onStart')}
+                    onPlay={() => this.setState({ playing: true })}
+                    onPause={() => this.setState({ playing: false })}
+                    onEnded={this.checkForNextSong}
+                    onError={e => console.log('onError', e)}
+                    onDuration={duration => this.setState({ duration })}
+                    />
+                </div>
+          </div>
       </div>
     </div>
     )

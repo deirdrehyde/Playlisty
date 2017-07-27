@@ -55,8 +55,8 @@ class PlaylistShow extends React.Component {
     // this.props.nowPlayingSong !== song ?
     const { playlist, songs } = this.props;
     console.log(playlist);
-    this.props.setPlaylist(playlist);
     this.props.setSong(songs[0]);
+    this.props.setPlaylist(playlist);
     this.props.playing ? this.props.pauseSong() : this.props.playPlaylist(songs);
   }
 
