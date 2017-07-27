@@ -60,7 +60,6 @@ class AddToPlaylistForm extends React.Component {
         <div className="buttons">
 
           <button className="cancel" onClick={this.props.closeAddToPlaylistForm}>Cancel</button>
-          <button className="create-playlist" onClick={this.handleSubmit}>Create</button>
           <button className="new-playlist" onClick={this.renderPlaylistForm}>New Playlist</button>
             {this.state.showComponent ?
               (<PlaylistForm
