@@ -84,7 +84,10 @@ class NowPlaying extends React.Component {
                   className="now-playing-name"
                   ></Link> : null
               }
-              <h4>{( nowPlayingSong ? nowPlayingSong.title : "")}</h4>
+              <div className="title-and-artist">
+                <h3 className="details">{( nowPlayingSong ? nowPlayingSong.title : "")}</h3>
+                <h4 className="details">{( nowPlayingSong ? nowPlayingSong.artist : "")}</h4>
+              </div>
             </div>
             <div className="controls">
 

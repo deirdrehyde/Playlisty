@@ -42,8 +42,16 @@
 .now-playing-details{
   display: flex;
   flex: 1;
+  align-items: center;
 }
 
+h3.details, h4.details {
+  margin: 5px;
+}
+.title-and-artist {
+  display: flex;
+  flex-direction: column;
+}
 a.now-playing-name {
   height: 50px;
   width: 50px;
