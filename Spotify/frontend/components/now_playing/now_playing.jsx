@@ -50,8 +50,8 @@ class NowPlaying extends React.Component {
   checkForNextSong() {
     if (this.props.nowPlayingPlaylist) {
       const idx = this.props.nowPlayingPlaylist.indexOf(this.props.nowPlayingSong);
-      console.log(idx);
-      this.props.setSong(this.props.nowPlayingPlaylist[idx + 1])
+      this.props.nowPlayingPlaylist[idx + 1] ?
+        this.props.setSong(this.props.nowPlayingPlaylist[idx + 1]) : this.stop();
     } else {
       this.stop();
     }
