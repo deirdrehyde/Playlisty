@@ -60,27 +60,26 @@ class SearchForm extends React.Component {
           <div className="search-results">
             <h2>Playlists</h2>
             <ul className="playlist-results">
-              <li>
                 {playlists.map(playlist =>
-                  <Link key={playlist.id} to={`/playlists/${playlist.id}`}>{playlist.name}</Link>
+                  <li className="search-result" ><Link key={playlist.id} to={`/playlists/${playlist.id}`}>{playlist.name}</Link></li>
                 )}
-              </li>
+
             </ul>
             <h2>Songs</h2>
               <ul className="song-results">
-                <li>
+
                   {songs.map(song =>
-                    <Link key={song.id} to={`/playlists/${song.playlistId}`}>{song.title}</Link>
+                    <li className="search-result" ><Link key={song.id} to={`/playlists/${song.playlistId}`}>{song.title}</Link></li>
                   )}
-                </li>
+
               </ul>
             <h2>Artists</h2>
               <ul className="artist-results">
-                <li>
+
                   {artists.map(artist =>
-                    <Link key={artist.id} to={`/artists/${artist.id}`}>{artist.name}</Link>
+                    <li className="search-result" ><Link key={artist.id} to={`/artists/${artist.id}`}>{artist.name}</Link></li>
                   )}
-                </li>
+
               </ul>
 
           </div>

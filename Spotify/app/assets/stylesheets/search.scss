@@ -10,4 +10,14 @@
 
 .search-results {
   padding: 1.5em 2em;
+
+}
+
+.search-result {
+  padding: 15px 0;
+}
+
+.playlist-results, .artist-results, .song-results {
+  display: flex;
+  flex-wrap: wrap;
 }
