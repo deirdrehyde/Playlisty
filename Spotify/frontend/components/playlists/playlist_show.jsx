@@ -31,6 +31,12 @@ class PlaylistShow extends React.Component {
       .then(this.props.fetchPlaylistSongs(this.props.playlistId));
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.playlistId !== this.props.playlistId) {
+      this.props.fetchPlaylistSongs(nextProps.playlistId);
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const { playlist } = this.props;

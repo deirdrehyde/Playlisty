@@ -24,3 +24,7 @@ export const fetchSong = (id) => (dispatch) => (
 export const fetchPlaylistSongs = (playlist_id) => (dispatch) => (
   APIUtil.fetchPlaylistSongs(playlist_id).then((songs) => dispatch(receiveSongs(songs)))
 );
+
+export const fetchArtistSongs = (artist_id) => (dispatch) => (
+  APIUtil.fetchArtistSongs(artist_id).then((songs) => dispatch(receiveSongs(songs)))
+);
