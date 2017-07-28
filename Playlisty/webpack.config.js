@@ -21,7 +21,7 @@ plugins = plugins.concat(
 )
 
 module.exports = {
-  entry: './frontend/spotify.jsx',
+  entry: './frontend/playlisty.jsx',
   output: {
     filename: './app/assets/javascripts/bundle.js',
   },
