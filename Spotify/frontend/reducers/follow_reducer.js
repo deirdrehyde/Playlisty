@@ -10,7 +10,7 @@ const FollowReducer = (state ={}, action) => {
     case RECEIVE_FOLLOWED_PLAYLISTS:
       return Object.assign({}, state, {followedPlaylists: action.followedPlaylists});
     case RECEIVE_FOLLOWED_PLAYLIST:
-      return Object.assign({}, state, {followedPlaylists: action.playlist});
+      return Object.assign({}, state, {[action.playlist.id]: action.playlist});
     // case REMOVE_FOLLOWED_PLAYLIST:
     //   return Object.assign({}, action.playlist);
     default:

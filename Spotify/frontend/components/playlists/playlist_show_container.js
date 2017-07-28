@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchPlaylistSongs: id => dispatch(fetchPlaylistSongs(id)),
   requestFollowedPlaylists: id => dispatch(requestFollowedPlaylists(id)),
   followPlaylist: (playlistId) => dispatch(followPlaylist(playlistId)),
-  unfollowPlaylist: (playlistId) => dispatch(unfollowPlaylist(playlistId)),
+  unfollowPlaylist: (id) => dispatch(unfollowPlaylist(id)),
   updatePlaylist: playlist => dispatch(updatePlaylist(playlist)),
   destroyPlaylist: playlist => dispatch(destroyPlaylist(playlist)),
   playSong: song => dispatch(playSong(song)),

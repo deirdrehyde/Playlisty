@@ -16,8 +16,17 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :playlists, foreign_key: :creator_id
-  has_many :follows, class_name: :Follow, foreign_key: :follower_id
-  has_many :followed_playlists, through: :follows, source: :followed_playlist
+
+  has_many :follows,
+    class_name: :Follow,
+    primary_key: :id,
+    foreign_key: :follower_id
+
+  has_many :followed_playlists,
+    through: :follows,
+    source: :followed_playlist
+
+
 
   after_initialize :ensure_session_token
   attr_reader :password

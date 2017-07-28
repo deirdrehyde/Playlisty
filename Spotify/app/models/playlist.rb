@@ -14,7 +14,11 @@ class Playlist < ApplicationRecord
 
   has_many :songs
   belongs_to :user, foreign_key: :creator_id
-  has_many :follows, class_name: :Follow, foreign_key: :playlist_id
+  has_many :follows,
+    class_name: :Follow,
+    foreign_key: :playlist_id,
+    primary_key: :id
   has_many :followers, through: :follows, source: :follower
+
 
 end

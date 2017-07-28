@@ -13,9 +13,9 @@ export const createPlaylistFollow = playlistId => {
   });
 };
 
-export const deletePlaylistFollow = playlistId => {
+export const deletePlaylistFollow = id => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/follows?followed_playlist=${playlistId}`
+    url: `/api/follows/${id}`
   });
 };

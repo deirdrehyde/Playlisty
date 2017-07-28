@@ -30,7 +30,7 @@ export const followPlaylist = playlistId => dispatch => (
     .then(playlist => dispatch(receiveFollowedPlaylist(playlist)))
 );
 
-export const unfollowPlaylist = playlistId => dispatch => (
-  APIUtil.deletePlaylistFollow(playlistId)
+export const unfollowPlaylist = id => dispatch => (
+  APIUtil.deletePlaylistFollow(id)
     .then(playlist => dispatch(removeFollowedPlaylist(playlist)))
 );
