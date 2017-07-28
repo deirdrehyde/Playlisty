@@ -15,7 +15,6 @@ class Greeting extends React.Component {
 
   render () {
     const { currentUser, logout, followedPlaylists } = this.props;
-    console.log(followedPlaylists);
     if (!currentUser) { return null };
     return(
       <div className="side-nav">

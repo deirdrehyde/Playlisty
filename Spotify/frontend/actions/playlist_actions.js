@@ -32,10 +32,9 @@ export const fetchPlaylist = (id) => (dispatch) => (
 export const createPlaylist = (playlist) => (dispatch) => (
   APIUtil.createPlaylist({playlist})
     .then(
-    (playlist) => dispatch(receivePlaylist(playlist)),
-    (error) => console.log(error))
-
-);
+    (playlist) => dispatch(receivePlaylist(playlist))
+    )
+  );
 
 export const updatePlaylist = playlist => dispatch => (
   APIUtil.updatePlaylist(playlist).then(playlist => dispatch(receivePlaylist(playlist)))

@@ -84,7 +84,6 @@ class PlaylistShow extends React.Component {
 
   toggleFollow(e) {
     e.preventDefault();
-    console.log(this.props.playlist);
     if (this.props.playlist.followed) {
       this.props.unfollowPlaylist(this.props.playlist.follow_id);
 
@@ -100,7 +99,6 @@ class PlaylistShow extends React.Component {
 
   render() {
     const { playlist, songs, playing, nowPlayingSong, currentUser, nowPlayingPlaylist} = this.props;
-    console.log(this.props);
     return (
       <div className="playlist-show">
 

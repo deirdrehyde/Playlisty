@@ -36,7 +36,6 @@ class SearchForm extends React.Component {
 
 
   render() {
-    console.log(this.props);
     const { playlists, songs, artists } = this.props;
     return(
       <form className="search-form">

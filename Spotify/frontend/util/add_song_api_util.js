@@ -10,5 +10,6 @@ export const addPlaylistSong = (song) => {
   return $.ajax({
     method: 'POST',
     url: `api/songs?playlist_id=${playlist_id}`
+    data
   })
 }

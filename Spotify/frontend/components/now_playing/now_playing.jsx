@@ -90,7 +90,6 @@ class NowPlaying extends React.Component {
             </div>
             <div className="controls">
               <div id="buttons">
-                <PrevButton isEnabled={false}/>
                 {playing ?
                   (<PauseButton
                     onClick={this.playPause}/>) :
@@ -98,16 +97,8 @@ class NowPlaying extends React.Component {
                       onClick={this.playPause}
                       isEnabled={true}/>)
                     }
-                    <NextButton isEnabled={false}/>
               </div>
-                  <ProgressBar
-                    totalTime={duration}
-                    currentTime={duration}
-                    isSeekable={true}
-                    onSeek={time => this.setState(() => ({ currentTime: time }))}
-                    onSeekStart={time => this.setState(() => ({ lastSeekStart: time }))}
-                    onSeekEnd={time => this.setState(() => ({ lastSeekEnd: time }))}
-                  />
+
             </div>
 
                 <div className='player-wrapper'>
@@ -119,12 +110,9 @@ class NowPlaying extends React.Component {
                     url={url}
                     playing={playing}
                     volume={volume}
-                    onReady={() => console.log('onReady')}
-                    onStart={() => console.log('onStart')}
                     onPlay={() => this.setState({ playing: true })}
                     onPause={() => this.setState({ playing: false })}
                     onEnded={this.checkForNextSong}
-                    onError={e => console.log('onError', e)}
                     onDuration={duration => this.setState({ duration })}
                     />
 
