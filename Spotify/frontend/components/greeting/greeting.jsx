@@ -27,11 +27,11 @@ class Greeting extends React.Component {
               </Link>
               <Link to='/search' className='search-nav'>Search</Link>
               <Link to='/playlists' className='playlist-nav'>Your Music</Link>
-              <div className="my-playlists">
+              <ul className="my-playlists">
                 { (followedPlaylists) ? (followedPlaylists.map((playlist) =>
-                    <Link key={playlist.id} to={`/playlists/${playlist.id}`}>{playlist.name}</Link>
+                    <li className="followed"><Link key={playlist.id} to={`/playlists/${playlist.id}`}>{playlist.name}</Link></li>
                 ) ) : null }
-              </div>
+              </ul>
             </div>
             <div className="bottom-side-nav">
               <h3>{currentUser.username}</h3>
