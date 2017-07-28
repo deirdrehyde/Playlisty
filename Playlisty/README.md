@@ -14,11 +14,28 @@
 
 ### Authentication
 
-User's passwords are encrypted as a salted hash using BCrypt before being stored in the database. Salting a password prepends a random string the password so even users with duplicate passwords will not have the same hash stored in the backend.
+Users' passwords are encrypted as a salted hash using BCrypt before being stored in the database. Salting a password prepends a random string the password so even users with duplicate passwords will not have the same hash stored in the backend.
+
+
+### Follow Playlists
+
+Browse through other users' playlists and add them to your own. Users can conveniently access all the playlists they've following on the main left navigation bar. Users can follow and unfollow playlists via a playlist view page.
+
+
+![follow_playlist](/docs/images/follow_playlist.png)
+
+### Search
+
+Users can search to find all playlists, songs, and artists across the website. Search results are sorted into categories for easier navigation.
+
+![search](/docs/images/search.png)
 
 
 ## Future
 
+* [ ] Controls and buttons
+* [ ] Shuffle play
+* [ ] Explore page
 * [ ] User follows
 * [ ] Image uploads for profiles/playlists
 * [ ] Play songs from Artist browse page
