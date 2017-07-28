@@ -23,6 +23,6 @@ class Api::FollowsController < ApplicationController
   private
 
   def follow_params
-    params.require(:follow).permit(:playlist_id, :follower_id)
+    params.require(:follow).permit(:playlist_id)
   end
 end

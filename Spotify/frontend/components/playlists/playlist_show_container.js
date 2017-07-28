@@ -4,6 +4,7 @@ import { fetchPlaylist, fetchPlaylists, destroyPlaylist, updatePlaylist } from '
 import { fetchPlaylistSongs } from '../../actions/song_actions';
 import { playSong, pauseSong, setSong } from '../../actions/now_playing_song_actions';
 import { playPlaylist, pausePlaylist, setPlaylist } from '../../actions/now_playing_playlist_actions';
+import { requestFollowedPlaylists, followPlaylist, unfollowPlaylist } from '../../actions/follow_actions';
 import { selectPlaylist, allSongs, allPlaylists } from '../../reducers/selectors';
 import PlaylistShow from './playlist_show';
 
@@ -16,6 +17,7 @@ const mapStateToProps = (state, {match}) => ({
   playing: state.nowPlayingSong.playing,
   songs: allSongs(state),
   playlists: allPlaylists(state),
+  followedPlaylists: state.followedPlaylists,
   errors: state.errors
 })
 
@@ -23,6 +25,9 @@ const mapDispatchToProps = (dispatch) => ({
   fetchPlaylist: id => dispatch(fetchPlaylist(id)),
   fetchPlaylists: () => dispatch(fetchPlaylists()),
   fetchPlaylistSongs: id => dispatch(fetchPlaylistSongs(id)),
+  requestFollowedPlaylists: id => dispatch(requestFollowedPlaylists(id)),
+  followPlaylist: (playlistId) => dispatch(followPlaylist(playlistId)),
+  unfollowPlaylist: (playlistId) => dispatch(unfollowPlaylist(playlistId)),
   updatePlaylist: playlist => dispatch(updatePlaylist(playlist)),
   destroyPlaylist: playlist => dispatch(destroyPlaylist(playlist)),
   playSong: song => dispatch(playSong(song)),

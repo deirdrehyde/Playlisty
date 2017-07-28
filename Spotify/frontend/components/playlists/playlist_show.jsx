@@ -84,10 +84,15 @@ class PlaylistShow extends React.Component {
 
   toggleFollow(e) {
     e.preventDefault();
-    const toggledFollow = merge({}, this.props.playlist, {
-       following: !this.state.following
-     });
-     this.props.updatePlaylist(toggledFollow);
+    if (this.state.following) {
+      this.props.unfollowPlaylist(this.props.playlistId);
+    } else {
+      this.props.followPlaylist(this.props.playlistId);
+    }
+    this.setState({
+      following: !this.state.following
+    })
+
   }
 
 
