@@ -22,21 +22,21 @@ Users' passwords are encrypted as a salted hash using BCrypt before being stored
 Browse through other users' playlists and add them to your own. Users can conveniently access all the playlists they've following on the main left navigation bar. Users can follow and unfollow playlists via a playlist view page.
 
 
-![followed_playlist_links](/docs/images/followed_playlist_links.png)
+![followed_playlist_links](./docs/images/followed_playlist_links.png)
 
 
 ### Playlist CRUD
 
 Users can view and follow all playlists, but can only create, edit, update, and destroy their own playlists.
 
-![create_playlist](/docs/images/create_playlist.png)
+![create_playlist](./docs/images/create_playlist.png)
 
 
 ### Search
 
 Users can search to find all playlists, songs, and artists across the website. Search results are links and are sorted into categories for easier navigation.
 
-![search](/docs/images/search.png)
+![search](./docs/images/search.png)
 
 
 ## Future
