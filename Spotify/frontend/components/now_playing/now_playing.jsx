@@ -49,7 +49,9 @@ class NowPlaying extends React.Component {
 
   checkForNextSong() {
     if (this.props.nowPlayingPlaylist) {
-
+      const idx = this.props.nowPlayingPlaylist.indexOf(this.props.nowPlayingSong);
+      console.log(idx);
+      this.props.setSong(this.props.nowPlayingPlaylist[idx + 1])
     } else {
       this.stop();
     }
@@ -69,8 +71,6 @@ class NowPlaying extends React.Component {
       playbackRate
     } = this.state
     const { nowPlayingSong, playing, currentUser } = this.props
-    console.log(this.state);
-    console.log(this.props);
     if (!currentUser) {return null}
 
     return(
