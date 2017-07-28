@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Greeting = ({currentUser, logout}) => (
-  currentUser ? greetingMessage(currentUser, logout) : null
-)
+const Greeting = ({currentUser, logout, allFollowedPlaylists}) => {
+  console.log(allFollowedPlaylists);
+  return(
+  currentUser ? greetingMessage(currentUser, logout, allFollowedPlaylists) : null
+)}
 
-const greetingMessage = (currentUser, logout) => (
+const greetingMessage = (currentUser, logout, allFollowedPlaylists) => (
   <div className="side-nav">
     <nav className="side-nav-container">
       <div className="greeting">
@@ -15,6 +17,11 @@ const greetingMessage = (currentUser, logout) => (
           </Link>
           <Link to='/search' className='search-nav'>Search</Link>
           <Link to='/playlists' className='playlist-nav'>Your Music</Link>
+          <div className="my-playlists">
+            { (allFollowedPlaylists) ? (allFollowedPlaylists.map((playlist) =>
+                <Link key={playlist.id} to={`/playlists/${playlist.id}`}>{playlist.name}</Link>
+            ) ) : null }
+          </div>
         </div>
         <div className="bottom-side-nav">
           <h3>{currentUser.username}</h3>

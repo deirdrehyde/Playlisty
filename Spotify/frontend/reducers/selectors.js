@@ -2,6 +2,8 @@ import values from 'lodash/values';
 
 export const allPlaylists = ({ playlists }) => values(playlists);
 
+export const allFollowedPlaylists = ({ followedPlaylists }) => values(followedPlaylists);
+
 export const allSongs = ({ songs }) => values(songs);
 
 export const allArtists = ({ artists }) => values(artists);
