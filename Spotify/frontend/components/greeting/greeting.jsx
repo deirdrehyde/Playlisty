@@ -10,11 +10,12 @@ class Greeting extends React.Component {
   }
 
   componentDidMount() {
-    this.props.receiveFollowedPlaylists(this.props.allFollowedPlaylists);
+    this.props.requestFollowedPlaylists(this.props.followedPlaylists);
   }
 
   render () {
-    const { currentUser, logout, allFollowedPlaylists } = this.props;
+    const { currentUser, logout, followedPlaylists } = this.props;
+    console.log(followedPlaylists);
     if (!currentUser) { return null };
     return(
       <div className="side-nav">
@@ -27,8 +28,8 @@ class Greeting extends React.Component {
               <Link to='/search' className='search-nav'>Search</Link>
               <Link to='/playlists' className='playlist-nav'>Your Music</Link>
               <div className="my-playlists">
-                { (allFollowedPlaylists) ? (allFollowedPlaylists.map((playlist) =>
-                    <Link key={playlist.id} to={`/playlists/${playlist.id}`}>{playlist.name}</Link>
+                { (followedPlaylists) ? (followedPlaylists.map((playlist) =>
+                    <Link key={playlist.id} to={`/playlists/${playlist.id}`}>{playlist.followed_playlist.name}</Link>
                 ) ) : null }
               </div>
             </div>

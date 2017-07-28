@@ -8,7 +8,8 @@ const FollowReducer = (state ={}, action) => {
 
   switch(action.type) {
     case RECEIVE_FOLLOWED_PLAYLISTS:
-      return Object.assign({}, state, {followedPlaylists: action.followedPlaylists});
+      const playlists = action.followedPlaylists;
+      return Object.assign({}, state, playlists);
     case RECEIVE_FOLLOWED_PLAYLIST:
       return Object.assign({}, state, {[action.playlist.id]: action.playlist});
     case REMOVE_FOLLOWED_PLAYLIST:
