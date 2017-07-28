@@ -27,7 +27,7 @@ Browse through other users' playlists and add them to your own. Users can conven
 
 Users can view and follow all playlists, but can only create, edit, update, and destroy their own playlists.
 
-![create_playlist](./docs/images/create_playlist.png)
+![create_playlist](./docs/images/create_new_playlist.png)
 
 
 ### Search
