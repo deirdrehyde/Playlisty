@@ -29,7 +29,7 @@ class Greeting extends React.Component {
               <Link to='/playlists' className='playlist-nav'>Your Music</Link>
               <div className="my-playlists">
                 { (followedPlaylists) ? (followedPlaylists.map((playlist) =>
-                    <Link key={playlist.id} to={`/playlists/${playlist.id}`}>{playlist.followed_playlist.name}</Link>
+                    <Link key={playlist.id} to={`/playlists/${playlist.id}`}>{playlist.name}</Link>
                 ) ) : null }
               </div>
             </div>

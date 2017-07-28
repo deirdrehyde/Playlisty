@@ -84,6 +84,7 @@ class PlaylistShow extends React.Component {
 
   toggleFollow(e) {
     e.preventDefault();
+    console.log(this.props.playlist);
     if (this.props.playlist.followed) {
       this.props.unfollowPlaylist(this.props.playlist.follow_id);
 

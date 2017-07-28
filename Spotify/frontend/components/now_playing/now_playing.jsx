@@ -72,7 +72,6 @@ class NowPlaying extends React.Component {
     } = this.state
     const { nowPlayingSong, playing, currentUser } = this.props
     if (!currentUser) {return null}
-    console.log(this.state.duration);
     return(
       <div className="now-playing-bar">
         <div className="play-bar">
