@@ -24,6 +24,14 @@ Browse through other users' playlists and add them to your own. Users can conven
 
 ![followed_playlist_links](/docs/images/followed_playlist_links.png)
 
+
+### Playlist CRUD
+
+Users can view and follow all playlists, but can only create, edit, update, and destroy their own playlists.
+
+![create_playlist](/docs/images/create_playlist.png)
+
+
 ### Search
 
 Users can search to find all playlists, songs, and artists across the website. Search results are links and are sorted into categories for easier navigation.
