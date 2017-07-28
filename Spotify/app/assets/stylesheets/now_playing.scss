@@ -30,12 +30,18 @@
 
 .controls {
   display: flex;
-  flex: 3;
+  flex: 1;
+  justify-content: center
+}
+
+.player-wrapper {
+  display: flex;
+  flex: 1;
 }
 
 .now-playing-details{
   display: flex;
-  flex: 2;
+  flex: 1;
 }
 
 a.now-playing-name {

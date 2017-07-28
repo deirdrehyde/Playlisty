@@ -58,14 +58,14 @@ class SearchForm extends React.Component {
           </div >
 
           <div className="search-results">
-            <h2>Playlists</h2>
+            <h2 className="search">Playlists</h2>
             <ul className="playlist-results">
                 {playlists.map(playlist =>
                   <li className="search-result" ><Link key={playlist.id} to={`/playlists/${playlist.id}`}>{playlist.name}</Link></li>
                 )}
 
             </ul>
-            <h2>Songs</h2>
+            <h2 className="search">Songs</h2>
               <ul className="song-results">
 
                   {songs.map(song =>
@@ -73,7 +73,7 @@ class SearchForm extends React.Component {
                   )}
 
               </ul>
-            <h2>Artists</h2>
+            <h2 className="search">Artists</h2>
               <ul className="artist-results">
 
                   {artists.map(artist =>
