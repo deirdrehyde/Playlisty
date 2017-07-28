@@ -31,7 +31,8 @@
 .controls {
   display: flex;
   flex: 1;
-  justify-content: center
+  flex-direction: column;
+  align-items: center;
 }
 
 .player-wrapper {
@@ -76,26 +77,33 @@ a.now-playing-name {
 .ProgressBar,
 .VolumeSlider {
   position: relative;
-  background: #eee;
+  background: #a0a0a0;;
   border-radius: 4px;
-  width: 20px;
+  height: 8px;
+  margin: 10px 0;
+  width: 250px;
 
   &-elapsed,
   &-value {
     background: gray;
     border-radius: 4px;
+    height: 100%;
   }
 
   &-seek {
     position: absolute;
     cursor: pointer;
+    left: 0;
+    right: 0;
+    top: -6px;
+    bottom: -6px;
   }
 
   &-handle {
     position: absolute;
     width: 16px;
     height: 16px;
-    background: green;
+    background: #fff;
     border-radius: 100%;
     transform: scale(0);
     transition: transform 0.2s;
@@ -107,6 +115,7 @@ a.now-playing-name {
       .ProgressBar-handle,
       .VolumeSlider-handle {
         transform: scale(1);
+        background: #1db954;
       }
 
       .ProgressBar-intent,
@@ -118,7 +127,7 @@ a.now-playing-name {
 
     .ProgressBar-elapsed,
     .VolumeSlider-value {
-      background: green;
+      background: #404040;
     }
   }
 }

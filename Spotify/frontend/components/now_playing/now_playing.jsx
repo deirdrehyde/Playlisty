@@ -72,7 +72,7 @@ class NowPlaying extends React.Component {
     } = this.state
     const { nowPlayingSong, playing, currentUser } = this.props
     if (!currentUser) {return null}
-
+    console.log(this.state.duration);
     return(
       <div className="now-playing-bar">
         <div className="play-bar">
@@ -90,19 +90,26 @@ class NowPlaying extends React.Component {
               </div>
             </div>
             <div className="controls">
-
-              <PrevButton isEnabled={false}/>
-              {playing ?
-                (<PauseButton
-                  onClick={this.playPause}/>) :
-                  (<PlayButton
-                    onClick={this.playPause}
-                    isEnabled={true}/>)
-                  }
-                  <NextButton isEnabled={false}/>
-                </div>
-
-
+              <div id="buttons">
+                <PrevButton isEnabled={false}/>
+                {playing ?
+                  (<PauseButton
+                    onClick={this.playPause}/>) :
+                    (<PlayButton
+                      onClick={this.playPause}
+                      isEnabled={true}/>)
+                    }
+                    <NextButton isEnabled={false}/>
+              </div>
+                  <ProgressBar
+                    totalTime={duration}
+                    currentTime={duration}
+                    isSeekable={true}
+                    onSeek={time => this.setState(() => ({ currentTime: time }))}
+                    onSeekStart={time => this.setState(() => ({ lastSeekStart: time }))}
+                    onSeekEnd={time => this.setState(() => ({ lastSeekEnd: time }))}
+                  />
+            </div>
 
                 <div className='player-wrapper'>
                   <ReactPlayer
@@ -121,6 +128,7 @@ class NowPlaying extends React.Component {
                     onError={e => console.log('onError', e)}
                     onDuration={duration => this.setState({ duration })}
                     />
+
                 </div>
           </div>
       </div>
