@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
-  receiveFollowedPlaylist: playlists => dispatch(receiveFollowedPlaylists(playlists))
+  receiveFollowedPlaylists: playlists => dispatch(receiveFollowedPlaylists(playlists))
 });
 
 export default connect(
