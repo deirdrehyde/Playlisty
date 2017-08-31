@@ -41,6 +41,7 @@ class PlaylistForm extends React.Component {
               value={ this.state.name }
               placeholder="Start typing..."
               onChange={ this.update('name') }
+              autoFocus
               />
           </label>
         </div >
