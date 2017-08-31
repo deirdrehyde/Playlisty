@@ -35,7 +35,7 @@ class PlaylistEditForm extends React.Component {
               ref="name"
               value={ this.state.name }
               onChange={ this.update('name') }
-              autoSelect
+              autoFocus
               />
           </label>
         </div >
