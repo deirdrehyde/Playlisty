@@ -8,7 +8,8 @@ class SearchForm extends React.Component {
       searchword: "",
       playlists: [],
       songs: [],
-      artists: []
+      artists: [],
+      noResults: false
     }
     this.fetchMatches = this.fetchMatches.bind(this);
 
@@ -31,7 +32,20 @@ class SearchForm extends React.Component {
   fetchMatches() {
     this.props.fetchMatchingPlaylists(this.state.searchword),
     this.props.fetchMatchingSongs(this.state.searchword),
-    this.props.fetchMatchingArtists(this.state.searchword)
+    this.props.fetchMatchingArtists(this.state.searchword),
+    this.checkResults()
+  }
+
+  checkResults() {
+    console.log(this.props.playlists);
+    console.log(this.props.artists);
+    console.log(this.state.songs);
+    console.log(this.state.searchword);
+    if (this.props.playlists === {}  && this.props.artists === {} && this.props.songs === {}  && this.state.searchword !== "" ) {
+      this.setState({
+        noResults: true
+      });
+    }
   }
 
 
@@ -57,6 +71,13 @@ class SearchForm extends React.Component {
           </div >
 
           <div className="search-results">
+            <ul className="no-results-found">
+              {this.state.noResults ?
+                <li>No Results Found</li> : null
+              }
+
+
+            </ul>
             <h2 className="search">Playlists</h2>
             <ul className="playlist-results">
                 {playlists.map(playlist =>
