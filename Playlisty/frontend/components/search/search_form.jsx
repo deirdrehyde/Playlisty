@@ -12,7 +12,8 @@ class SearchForm extends React.Component {
       noResults: false
     }
     this.fetchMatches = this.fetchMatches.bind(this);
-
+    this.checkResults = this.checkResults.bind(this);
+    this.update = this.update.bind(this);
   }
 
   componentDidMount() {
@@ -41,6 +42,7 @@ class SearchForm extends React.Component {
     console.log(this.props.artists);
     console.log(this.props.songs);
     console.log(this.state.searchword);
+
     if (this.props.playlists.length < 1  && this.props.artists.length < 1 && this.props.songs.length < 1 && this.state.searchword !== "") {
       this.setState({
         noResults: true
@@ -51,6 +53,7 @@ class SearchForm extends React.Component {
       });
     }
   }
+
 
 
   render() {
