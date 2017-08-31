@@ -24,7 +24,7 @@ class SearchForm extends React.Component {
       e => {
         this.setState({
         [property]: e.target.value
-        }, this.fetchMatches)
+      }, this.fetchMatches)
       }
     )
   }
@@ -39,11 +39,15 @@ class SearchForm extends React.Component {
   checkResults() {
     console.log(this.props.playlists);
     console.log(this.props.artists);
-    console.log(this.state.songs);
+    console.log(this.props.songs);
     console.log(this.state.searchword);
-    if (this.props.playlists === {}  && this.props.artists === {} && this.props.songs === {}  && this.state.searchword !== "" ) {
+    if (this.props.playlists.length < 1  && this.props.artists.length < 1 && this.props.songs.length < 1 && this.state.searchword !== "") {
       this.setState({
         noResults: true
+      });
+    } else {
+      this.setState({
+        noResults: false
       });
     }
   }
@@ -72,9 +76,9 @@ class SearchForm extends React.Component {
           </div >
 
           <div className="search-results">
-            <ul className="no-results-found">
+            <ul className="results-found">
               {this.state.noResults ?
-                <li>No Results Found</li> : null
+                <li className="no-results-found">No Results Found</li> : null
               }
 
 
