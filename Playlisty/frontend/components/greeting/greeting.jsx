@@ -22,7 +22,7 @@ class Greeting extends React.Component {
           <div className="greeting">
             <div className="top-side-nav">
               <Link to='/playlists' className="logo-small">
-                <img className="logo-small" src="http://res.cloudinary.com/douzdapki/image/upload/v1500486429/Refresh_xdfvbr.png" />
+                <img className="logo-small" src="https://s3-us-west-1.amazonaws.com/deirdrehydeappacademy/Refresh.png" />
               </Link>
               <Link to='/search' className='search-nav'>Search</Link>
               <Link to='/playlists' className='playlist-nav'>Your Music</Link>

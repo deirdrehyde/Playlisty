@@ -70,7 +70,7 @@ class SessionForm extends React.Component {
       <div className="front-page">
 
         <div className="header">
-          <img className="logo" src="http://res.cloudinary.com/douzdapki/image/upload/v1500486429/Refresh_xdfvbr.png"/>
+          <img className="logo" src="https://s3-us-west-1.amazonaws.com/deirdrehydeappacademy/Refresh.png"/>
           <h1>Playlisty</h1>
         </div>
         <div className="flex-grid">

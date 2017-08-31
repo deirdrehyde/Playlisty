@@ -5,4 +5,4 @@ json.name playlist.name
 json.creator playlist.user.username
 json.followed followed ? true : false
 json.follow_id followed ? followed.id : 0
-json.image_url asset_path(playist.image.url)
+json.image_url asset_path(playlist.image.url)

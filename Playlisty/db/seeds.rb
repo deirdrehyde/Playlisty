@@ -18,5 +18,5 @@ playlist7 = Playlist.create!(name: "Classical", creator_id: guest1.id)
 playlist8 = Playlist.create!(name: "Jazz", creator_id: guest1.id)
 
 artist1 = Artist.create!(name: "The Best Artist", description: "Self-taught musician from San Francisco, CA who names Prince as his inspiration")
-Song.create!(title: "Blind Love Dub", duration: 300, song_url: "http://res.cloudinary.com/douzdapki/video/upload/v1501009910/VJ_Memes_-_Blind_Love_Dub_htjplp.mp3", playlist_id: playlist1.id, artist_id: artist1.id)
-Song.create!(title: "Seagulls", duration: 25, song_url: "http://res.cloudinary.com/douzdapki/video/upload/v1500915412/397915__klankbeeld__coast-seagull-ship-170512-1140_rfe9cr.wav", playlist_id: playlist1.id, artist_id: artist1.id)
+Song.create!(title: "Blind Love Dub", duration: 300, song_url: "https://s3-us-west-1.amazonaws.com/deirdrehydeappacademy/VJ_Memes_-_Blind_Love_Dub_htjplp.mp3", playlist_id: playlist1.id, artist_id: artist1.id)
+Song.create!(title: "Seagulls", duration: 25, song_url: "https://s3-us-west-1.amazonaws.com/deirdrehydeappacademy/397915__klankbeeld__coast-seagull-ship-170512-1140.wav", playlist_id: playlist1.id, artist_id: artist1.id)
