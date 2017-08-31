@@ -66,6 +66,7 @@ class SearchForm extends React.Component {
               value={ this.state.searchword }
               placeholder="Start typing..."
               onChange={ this.update('searchword') }
+              autoFocus
               />
             </label>
           </div >
